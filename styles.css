@@ -4,8 +4,11 @@ body {
     font-size: 14px;
     font-weight: bold;
     font-family: sans-serif;
-    color: #919191;
-    background-color: #232323;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -13,11 +16,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-size: 16px;
     font-weight: bold;
-}
-
-a {
-    outline: none;
-    text-decoration: none;
+    font-style: normal;
 }
 
 .clear {
@@ -27,11 +26,23 @@ a {
 
 .clear:after {
     display: block;
-    height: 0;
     content: ".";
-    clear: both;
     line-height: 0;
     visibility: hidden;
+    clear: both;
+}
+
+.gallery_img {
+    float: left;
+    display: block;
+    margin: 0 20px 0 0;
+    text-align: justify;
+}
+
+.gallery_img img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
 }
 
 figure {
@@ -39,7 +50,6 @@ figure {
     margin: 0;
     padding: 0;
 }
-
 
 div.body {
     display: block;
@@ -59,24 +69,15 @@ div.body {
     background-color: #1F2833;
 }
 
-
-.main {
-    color: #979797;
+.main, .main a {
     background-color: #FFFFFF;
 }
 
-.main a {
-    color: forestgreen;
-    background-color: #FFFFFF;
-}
-
-
-#header, #container, #footer {
+#header, #main_container {
     display: block;
     width: 60%;
     margin: 0 auto;
 }
-
 
 #header {
     padding: 30px 0;
@@ -87,13 +88,13 @@ div.body {
     margin: 0 0 30px 0;
 }
 
-#header #hgroup h1 {
+#hgroup h1 {
     font-weight: normal;
     text-transform: none;
-    font-size: 36px;
+    font-size: 38px;
 }
 
-#header #hgroup h2 {
+#hgroup h2 {
     font-weight: normal;
     text-transform: none;
     font-size: 13px;
@@ -126,11 +127,61 @@ div.body {
     background-color: #23232300;
 }
 
+#main_container {
+    padding: 30px 0;
+}
+
+#main_container section {
+    display: block;
+    width: 100%;
+    margin: 0 0 30px 0;
+    padding: 0;
+}
+
+#title {
+    display: block;
+    width: 60%;
+    font-size: 18px;
+    color: #1F2833;
+    background-color: #ffffff;
+    text-transform: uppercase;
+}
+
+
+#mainpage {
+    display: block;
+    width: 100%;
+    line-height: 1.5em;
+}
+
+#mainpage h1 {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1F2833;
+}
+
+
+#gallery figure {
+    padding: 4px;
+    text-align: center;
+    border: 1px solid #fd4400;
+}
+
+#gallery figcaption {
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+    color: #fd4400;
+    background-color: #1F2833;
+}
+
 #footer {
-    padding: 20px 0;
+    width: 100%;
+    float: left;
+    background-color: #1F2833;
 }
 
 #footer p {
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
