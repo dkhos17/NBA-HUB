@@ -3,9 +3,13 @@
 <head>
 <title>2k20 NBA</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="styles.css" type="text/css">
-<link rel="stylesheet" href="header.css" type="text/css">
-<link rel="stylesheet" href="footer.css" type="text/css">
+
+<link rel="stylesheet" href="styles/style.css" type="text/css">
+<link rel="stylesheet" href="styles/header.css" type="text/css">
+<link rel="stylesheet" href="styles/footer.css" type="text/css">
+
+<script src="back-js/slideshow.js"></script>
+<link rel="stylesheet" href="styles/slideshow.css" type="text/css">
 </head>
 
 <body>
@@ -31,10 +35,36 @@
 
 <div class="body main">
   <div id="main_container" class="clear">
-    <section id="slideshow"><a href="#"><img src="images/demo/960x360.gif" alt=""></a></section>
     <section id="title">
-      <p>Lakers Rout Heat To Claim Championship</p>
+      <h1>Lakers Rout Heat To Claim Championship</h1>
     </section>
+    <section id="slideshow">
+        <div class="slideshow-container">
+
+          <div class="slides fade" style="display: block;">
+            <img src="resources/slide1.jpg">
+          </div>
+
+          <div class="slides fade">
+            <img src="resources/slide2.jpg">
+          </div>
+
+          <div class="slides fade">
+            <img src="resources/slide3.jpg">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <div style="text-align: center;">
+          <span class="dots" onclick="currentSlide(1)"></span>
+          <span class="dots" onclick="currentSlide(2)"></span>
+          <span class="dots" onclick="currentSlide(3)"></span>
+        </div>
+
+    </a></section>
     <div id="mainpage">
       <h1>Services We Offer</h1>
 

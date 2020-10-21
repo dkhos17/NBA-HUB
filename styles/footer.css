@@ -17,12 +17,14 @@ a {
 }
 
 #footer {
+    margin-top: 30px;
+    margin-bottom: 15px;
     width: 100%;
     float: left;
     background-color: #1F2833;
 
-    bottom: 20px;
-    position: fixed;
+    /* bottom: 20px;
+    position: fixed; */
 }
 
 #footer p {
