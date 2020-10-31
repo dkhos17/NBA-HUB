@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "26a349b9-1268-4c95-98aa-2ba50e1af584",
+		"name": "NBApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Games",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "free-nba.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09",
+						"type": "text"
+					},
+					{
+						"key": "useQueryString",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://free-nba.p.rapidapi.com/games?page=0&per_page=25",
+					"protocol": "https",
+					"host": [
+						"free-nba",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"games"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "per_page",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Teams",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "free-nba.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09",
+						"type": "text"
+					},
+					{
+						"key": "useQueryString",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://free-nba.p.rapidapi.com/teams?page=0",
+					"protocol": "https",
+					"host": [
+						"free-nba",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"teams"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Players",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "free-nba.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09",
+						"type": "text"
+					},
+					{
+						"key": "useQueryString",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://free-nba.p.rapidapi.com/players?page=0&per_page=25",
+					"protocol": "https",
+					"host": [
+						"free-nba",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"players"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "per_page",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Stats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "free-nba.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09",
+						"type": "text"
+					},
+					{
+						"key": "useQueryString",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://free-nba.p.rapidapi.com/stats?page=0&per_page=25",
+					"protocol": "https",
+					"host": [
+						"free-nba",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"stats"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "per_page",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Specific Game",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "free-nba.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09",
+						"type": "text"
+					},
+					{
+						"key": "useQueryString",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://free-nba.p.rapidapi.com/games/1",
+					"protocol": "https",
+					"host": [
+						"free-nba",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"games",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Specific Team",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "free-nba.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09",
+						"type": "text"
+					},
+					{
+						"key": "useQueryString",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://free-nba.p.rapidapi.com/teams/1",
+					"protocol": "https",
+					"host": [
+						"free-nba",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"teams",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Specific Player",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "free-nba.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09",
+						"type": "text"
+					},
+					{
+						"key": "useQueryString",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://free-nba.p.rapidapi.com/players/1",
+					"protocol": "https",
+					"host": [
+						"free-nba",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"players",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
