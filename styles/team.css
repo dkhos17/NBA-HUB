@@ -1,0 +1,18 @@
+.team-box figure {
+    padding: 4px;
+    text-align: center;
+    border: 2px solid #fd4400;
+}
+
+.team-box h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    font-family: monospace;
+    border-bottom: 2px solid #1F2833;
+}
+
+.team-box h2 {
+    font-size: 15px;
+    font-family: monospace;
+}

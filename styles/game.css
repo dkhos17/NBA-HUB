@@ -1,0 +1,27 @@
+.game-box figure {
+    width: 20%;
+    padding: 10px 10px;
+    text-align: center;
+    border: 2px solid #fd4400;
+}
+
+.result h1 {
+    font-size: 20px;
+    color: #1F2833;
+    font-family: monospace;
+}
+
+.result h1:hover {
+    color: #fd4400;
+}
+
+.result h2 {
+    font-size: 15px;
+    color: #1F2833;
+    font-family: monospace;
+}
+
+.result #score {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1F2833;
+}
