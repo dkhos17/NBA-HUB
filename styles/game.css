@@ -2,23 +2,24 @@
     height: 80;
     padding: 10px 10px;
     text-align: center;
-    border: 2px solid #fd4400;
+    border: 3px solid #FF851B;
+    background-color: #111111;      
 }
 
 .result h1 {
     font-size: 20px;
-    color: #1F2833;
-    font-family: monospace;
-}
-
-.result h1:hover {
-    color: #fd4400;
+    color: #00fd4c;
+    font-family: Georgia, 'Times New Roman', Times, serif   ;
 }
 
 .result h2 {
     font-size: 15px;
-    color: #1F2833;
+    color: #FF851B;
     font-family: monospace;
+}
+
+.result h1:hover, .result h2:hover {
+    color: #00fd4c;
 }
 
 .result #score {
@@ -58,11 +59,25 @@
     border-bottom: 4px solid #1F2833;
 }
 
+
 .idk {
     width: 60%;
-    height: 300px;
+    min-height: 400px;
     margin: 0 auto;
     border: 3px solid #1F2833;
+}
+.idk img {
+    padding-right: 10px;
+}
+
+#games_text h1 {
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#games_text h2 {
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .pages {

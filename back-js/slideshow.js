@@ -12,6 +12,8 @@ function currentSlide(n) {
 function showSlides(n) {
     var slides = document.getElementsByClassName("slides");
     var dots = document.getElementsByClassName("dots");
+    var title = document.getElementById("title_text");
+    var titles = ["Welcome to NBA Basketball corner", "Lakers Rout Heat To Claim Championship", "Reports: Lakers, Thunder agree in principle to Dennis Schroder trade"]
     if (n > slides.length) {
         slideIndex = 1
     }
@@ -24,7 +26,7 @@ function showSlides(n) {
     for (var i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    
+    title.innerText = titles[slideIndex-1]
     dots[slideIndex - 1].className += " active";
     slides[slideIndex - 1].style.display = "block";
 }
