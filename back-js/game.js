@@ -1,32 +1,61 @@
-function CreateGameRecordItem(game) {
-    var games = document.createElement('data')
-    var article = document.createElement('article')
-    var figure = document.createElement('figure')
+function CreateGameRecordItem(game_data) {
+    var game = document.createElement('data');
+    var article = document.createElement('article');
+    var figure = document.createElement('figure');
 
-    var abbreviation = document.createElement('h1')
-    var score = document.createElement('h1')
-    var period = document.createElement('h2')
-    var season_status = document.createElement('h2')
-
-    article.setAttribute('class', 'game-box')
-    figure.setAttribute('class', 'result')
-    abbreviation.setAttribute('class', 'abbreviation')
-    score.setAttribute('class', 'score')
-    period.setAttribute('class', 'abbrperiodeviation')
-    season_status.setAttribute('class', 'season_status')
+    var abbreviation = document.createElement('div');
+    var abbreviation_content = document.createElement('div');
+    var team1_img = document.createElement('img');
+    var team2_img = document.createElement('img');
+    var team1_h1 = document.createElement('h1');
+    var double_point = document.createElement('h1');
+    var team2_h1 = document.createElement('h1');
     
-    abbreviation.innerHTML = game.home_team.abbreviation + ":" + game.visitor_team.abbreviation
-    score.innerHTML = game.home_team_score + ":" + game.visitor_team_score
-    period.innerHTML = "Period - " + game.period
-    season_status.innerHTML = game.season + " " + game.status
+    var score = document.createElement('h1');
+    var period = document.createElement('h2');
+    var season_status = document.createElement('h2');
 
-    figure.appendChild(abbreviation)
-    figure.appendChild(score)
-    figure.appendChild(period)
-    figure.appendChild(season_status)
-    article.appendChild(figure)
-    games.appendChild(article)
-    return games
+    article.setAttribute('class', 'game-box');
+    figure.setAttribute('class', 'result');
+    
+    abbreviation.setAttribute('class', 'abbreviation');
+    abbreviation_content.setAttribute('class', 'abbreviation_content');
+    team1_img.setAttribute('class', 'team_img');
+    team2_img.setAttribute('class', 'team_img');
+    team1_h1.setAttribute('class', 'team_abbreviation');
+    double_point.setAttribute('class', 'team_abbreviation');
+    team2_h1.setAttribute('class', 'team_abbreviation');
+    
+    score.setAttribute('class', 'score');
+    period.setAttribute('class', 'period');
+    season_status.setAttribute('class', 'season_status');
+    
+    team1_img.setAttribute('src', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/'+game_data.home_team.abbreviation.toLowerCase()+'.png');
+    team2_img.setAttribute('src', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/'+game_data.visitor_team.abbreviation.toLowerCase()+'.png');
+
+    team1_h1.innerHTML = game_data.home_team.abbreviation;
+    double_point.innerHTML = '&nbsp:&nbsp';
+    team2_h1.innerHTML = game_data.visitor_team.abbreviation;
+
+    score.innerHTML = game_data.home_team_score + "&nbsp:&nbsp" + game_data.visitor_team_score;
+    period.innerHTML = "Period - " + game_data.period;
+    season_status.innerHTML = game_data.season + " " + game_data.status;
+
+    abbreviation_content.appendChild(team1_img);
+    abbreviation_content.appendChild(team1_h1);
+    abbreviation_content.appendChild(double_point);
+    abbreviation_content.appendChild(team2_h1);
+    abbreviation_content.appendChild(team2_img);
+    abbreviation.appendChild(abbreviation_content);
+
+    figure.appendChild(abbreviation);
+    figure.appendChild(score);
+    figure.appendChild(period);
+    figure.appendChild(season_status);
+    article.appendChild(figure);
+    game.appendChild(article);
+    console.log(game);
+    return game;
 }
 
 const container = document.getElementById("container");
@@ -76,6 +105,4 @@ prev_butt.addEventListener("click", function() {
     CURR_PAGE -= 1; CURR_PAGE += MAX_PAGES; CURR_PAGE %= MAX_PAGES;
     loadAllGames(CURR_PAGE, PER_PAGE);
 });
-
-
 

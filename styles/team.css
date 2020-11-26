@@ -1,18 +1,89 @@
 .team-box figure {
     padding: 4px;
     text-align: center;
-    border: 2px solid #fd4400;
+    border: 3px solid #FF851B;
+    background-color: #111111;   
 }
 
 .team-box h1 {
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    font-family: monospace;
-    border-bottom: 2px solid #1F2833;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #00fd4c;
+    border-bottom: 2px solid #FF851B;
 }
 
 .team-box h2 {
     font-size: 15px;
-    font-family: monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #00fd4c;
+}
+
+.team-box h1:hover, .team-box h2:hover {
+    color: #FF851B;
+}
+
+.team-box img {
+    width: 150px;
+    height: 150px;
+}
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+#container {
+    width: 60%;
+    padding: 20px;
+    display: grid;
+    margin: 0 auto;
+    grid-gap: 1em;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+#title {
+    width: 60%;
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #1F2833;
+    background-color: #ffffff;
+    text-transform: uppercase;
+}
+
+#title h1 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #1F2833;
+}
+
+.pages {
+    text-align: center;
+}
+
+.pages a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.pages a:hover {
+    background-color: #1F2833;
+    color: #00fd4c;
+}
+
+.prev, .next {
+    margin: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #00fd4c;
+    color: #1F2833;
+}
+
+.round {
+    border-radius: 50%;
 }

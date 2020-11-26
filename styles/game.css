@@ -9,7 +9,7 @@
 .result h1 {
     font-size: 20px;
     color: #00fd4c;
-    font-family: Georgia, 'Times New Roman', Times, serif   ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .result h2 {
@@ -18,13 +18,36 @@
     font-family: monospace;
 }
 
-.result h1:hover, .result h2:hover {
-    color: #00fd4c;
-}
-
 .result #score {
     padding-bottom: 10px;
     border-bottom: 2px solid #1F2833;
+}
+
+.score {
+    padding: 0;
+    margin: 10px;
+}
+
+.abbreviation {
+    display: inline-block;
+}
+
+.abbreviation_content {
+    display: flex;
+}
+
+.abbreviation_content img {
+    width: 64px;
+    height: 64px;
+    padding: 6px;
+}
+
+.abbreviation h1, .abbreviation h2 {
+    margin-top: 30px;
+    color: #00fd4c;
+}
+.abbreviation h1:hover, .abbreviation h2:hover {
+    color: #FF851B;
 }
 
 :root {
