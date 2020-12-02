@@ -1,0 +1,111 @@
+.player-profile {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.player-cell {
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 2px solid #FF851B;
+    background-color: #1F2833;
+}
+
+.player-cell a {
+    color: #FF851B;
+    text-decoration: none;
+}
+
+.player-cell a:hover {
+    color: #ffffff;
+}
+
+.player-box {
+    display: none;
+}
+
+.player-box figure {
+    padding: 4px;
+    border: 2px solid #1F2833;
+}
+
+.player-cell figure {
+    margin: 10px;
+    border: 2px solid #FF851B;
+    background-color: #1F2833;
+}
+
+.player-box img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    background-color: #FF851B;
+}
+
+.player-cell img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.player-info {
+    margin-left: 60px;
+}
+
+.player-per-game {
+    display: flex;
+}
+
+.per-game {
+    width: 25%;
+}
+
+.player-per-game-h {
+    text-align: center;
+}
+
+.player-box h1 {
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.player-per-game h1 {
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.player-info-figure {
+    display: flex;
+}
+
+#title {
+    width: 60%;
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #1F2833;
+    background-color: #ffffff;
+    /* text-transform: uppercase; */
+}
+
+#title h1 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #1F2833;
+}
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+#container {
+    width: 60%;
+    padding: 20px;
+    display: grid;
+    margin: 0 auto;
+    grid-gap: 1em;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}

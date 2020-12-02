@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>2k20 NBA</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="styles/header.css" type="text/css">
+<link rel="stylesheet" href="styles/player.css" type="text/css">
+<link rel="stylesheet" href="styles/footer.css" type="text/css">
+</head>
+
+<body>
+<div class="body header">
+  <header id="header" class="clear">
+    <div id="hgroup">
+      <h1><a href="#"><img src="resources/web-logo.png" width="30" height="30" alt=""> NBA </a></h1>
+      <h2>2020 Free NBA info</h2>
+    </div>
+   
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Games.html">Games</a></li>
+        <li><a href="Teams.html">Teams</a></li>
+        <li><a href="Players.html">Players</a></li>
+        <li><a href="#">Stats</a></li>
+      </ul>
+    </nav>
+
+  </header>
+</div>
+
+<div class="body main">
+    <section id="title">
+        <h1 id="player_profile_name">PLAYER PROFILE - LeBron James </h1>
+    </section>
+
+    <div class="player-profile">
+        <article class="player-box" id="playerid" style="display: block;">
+            <figure class="player-info-figure">
+                <a id="profile_wiki" href="https://en.wikipedia.org/wiki/LeBron_James"> 
+                    <img id="profile_img" src="https://nba-players.herokuapp.com/players/james/lebron"> 
+                </a>
+        
+                <div class="player-info">
+                    <h1 id="per_game"> --- Player Basic info --- </h1>
+                    <h1 id="name"> Name: </h1>
+                    <h1 id="team_acronym"> Team acronym: </h1>
+                    <h1 id="team_name"> Team Full Name: </h1>
+                    <h1 id="games_played"> Games Played: </h1>
+                </div>
+            </figure>
+        
+            <figure>
+                <h1 class="player-per-game-h"> --- Player Per Game Stats --- </h1>
+                <div class="player-per-game">
+                    <div class="per-game">
+                        <h1 id="minutes_per_game"> Minutes: </h1>
+                        <h1 id="field_goals_attempted_per_game"> Goals attempted:</h1>
+                        <h1 id="field_goals_made_per_game"> Goals made:  </h1>
+                        <h1 id="field_goal_percentage"> Goals percentage: </h1>
+                    </div>
+            
+                    <div class="per-game">
+                        <h1 id="free_throw_percentage"> Throw percentage: </h1>
+                        <h1 id="three_point_attempted_per_game"> Three point attempted: </h1>
+                        <h1 id="three_point_made_per_game"> Three point made: </h1>
+                        <h1 id="three_point_percentage"> Three point percentage: </h1>
+                        <h1 id="points_per_game"> Points: </h1>
+                    </div>
+            
+                    <div class="per-game">
+                        <h1 id="offensive_rebounds_per_game"> Offensive Rebounds: </h1>
+                        <h1 id="defensive_rebounds_per_game"> Defensive Rebounds: </h1>
+                        <h1 id="rebounds_per_game"> Rebounds: </h1>
+                        <h1 id="assists_per_game"> Assists: </h1>
+                    </div>
+            
+                    <div class="per-game">
+                        <h1 id="steals_per_game"> Steals: </h1>
+                        <h1 id="blocks_per_game"> Blocks: </h1>
+                        <h1 id="turnovers_per_game"> Turnovers: </h1>
+                        <h1 id="player_efficiency_rating"> Player efficiency rating: </h1>
+                    </div>
+                </div>
+        
+            </figure>
+        
+        </article>
+    </div>
+
+    <section id="title">
+      <h1>See All Players here</h1>
+    </section>
+   
+    <div class="players" id="container"></div>
+</div>
+
+<script src="back-js/player.js"></script>
+<div class="body footer">
+  <footer id="footer" class="clear">
+    <p>Copyright &copy; 2020 - All Rights Reserved - <a href="https://classroom.google.com/u/0/c/MzQwMjQzMjA2NDda">Freeuni Web 2020</a></p>
+  </footer>
+</div>
+</body>
+</html>
