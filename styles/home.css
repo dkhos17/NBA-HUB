@@ -67,21 +67,6 @@ div.body {
     padding: 0;
 }
 
-#title {
-    display: block;
-    width: 60%;
-    font-size: 16px;
-    color: #1F2833;
-    background-color: #ffffff;
-    text-transform: uppercase;
-}
-
-#title h1 {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 4px solid #1F2833;
-}
-
 #mainpage {
     display: block;
     width: 100%;

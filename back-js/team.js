@@ -1,3 +1,26 @@
+function showTeamProfile(team_data) {
+
+  var helper = function(id, delimiter, new_text) {
+      var element = document.getElementById(id);
+      var old_text = element.innerHTML;
+      if(old_text.includes(delimiter)) {
+        element.innerHTML = old_text.split(delimiter)[0] + delimiter + '&nbsp' + new_text
+      } else {
+        element.innerHTML = '---&nbsp' + new_text.toUpperCase() + '&nbsp---';
+      }
+  }
+
+  var img = document.getElementById("team_profile_img");
+  img.setAttribute('src', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/' + team_data.abbreviation.toLowerCase() + '.png');
+
+  helper("team_details", ':', team_data.abbreviation);
+  helper("team_city", ':', team_data.city);
+  helper("team_conference", ':', team_data.conference);
+  helper("team_division", ':', team_data.division);
+  helper("team_full_name", ':', team_data.full_name);
+  helper("team_name", ':', team_data.name);
+}
+
 function CreateTeamRecordItem(team_data) {
     var team = document.createElement('div');
     var article = document.createElement('article');
@@ -31,6 +54,11 @@ function CreateTeamRecordItem(team_data) {
     full_name.innerHTML = "Full Name: " + team_data.full_name;
     name.innerHTML = "Name: " + team_data.name;
      
+    abbreviation.addEventListener('click', function() {
+      showTeamProfile(team_data);
+      loadTeamPlayers(team_data.abbreviation.toLowerCase());
+    });
+
     a.appendChild(img);
     figure.appendChild(a);
     figure.appendChild(abbreviation);
@@ -41,19 +69,22 @@ function CreateTeamRecordItem(team_data) {
     figure.appendChild(name);
     article.appendChild(figure);
     team.appendChild(article);
+
+    
+
     return team;
 }
 
-const container = document.getElementById("container");
+const team_container = document.getElementById("team_container");
 
 function createTeamGrid(teams) {
-  container.innerHTML = ""
+  team_container.innerHTML = ""
   rows = teams.data.length/2; cols = 2;
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
+  team_container.style.setProperty('--grid-rows', rows);
+  team_container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < rows*cols; c++) {
     let cell = CreateTeamRecordItem(teams.data[c]);
-    container.appendChild(cell);
+    team_container.appendChild(cell);
   };
 };
 
@@ -75,4 +106,63 @@ function loadAllTeams() {
   xhr.send(data);
 }
 
-loadAllTeams()
+loadAllTeams();
+
+
+function CreateTeamPlayerRecordItem(player_data, idx) {
+  var player = document.createElement('div');
+  var a = document.createElement('a');
+  var player_name = document.createElement('h2');
+
+  player_name.innerHTML = idx.toString() + ")&nbsp&nbsp" + player_data.name;
+  a.appendChild(player_name);
+  player.appendChild(a);
+  return player;
+}
+
+const team_players_container = document.getElementById("team_players_container");
+
+function createTeamPlayersGrid(players) {
+  team_players_container.innerHTML = ""
+  rows = players.length; cols = 1;
+  team_players_container.style.setProperty('--grid-rows', rows);
+  team_players_container.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < rows*cols; c++) {
+    let cell = CreateTeamPlayerRecordItem(players[c], c+1);
+    team_players_container.appendChild(cell);
+  };
+};
+
+function loadTeamPlayers(team_abv) {
+  const data = null;
+  const xhr = new XMLHttpRequest();
+  
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      var players = JSON.parse(this.response);
+      createTeamPlayersGrid(players);
+    }
+  });
+  
+  xhr.open("GET", "https://nba-players.herokuapp.com/players-stats-teams/" + team_abv);
+  xhr.send(data);
+
+  var changeDisplay = function(elem) {
+    if(elem.style.display == 'none') {
+      elem.style.display = 'block';
+    } else {
+      elem.style.display = 'none';
+    }
+  };
+
+  var team_details = document.getElementById("team_details");
+  var team_players = document.getElementById("team_players");
+  team_details.addEventListener('click', function() {
+    changeDisplay(document.getElementById("team_details_div"));
+  });
+  team_players.addEventListener('click', function() {
+    changeDisplay(team_players_container);
+  });
+}
+
+loadTeamPlayers('mia');

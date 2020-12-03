@@ -1,6 +1,6 @@
 function showPlayerProfile(player_data) {
 
-    let helper = function(id, delimiter, new_text) {
+    var helper = function(id, delimiter, new_text) {
         var element = document.getElementById(id);
         var old_text = element.innerHTML;
         element.innerHTML = old_text.split(delimiter)[0] + delimiter + '&nbsp' + new_text
@@ -35,7 +35,6 @@ function showPlayerProfile(player_data) {
     helper("blocks_per_game", ':', player_data.blocks_per_game);
     helper("turnovers_per_game", ':', player_data.turnovers_per_game);
     helper("player_efficiency_rating", ':', player_data.player_efficiency_rating);
-
 }
 
 function CreatePlayerRecordItem(player_data) {
@@ -61,21 +60,21 @@ function CreatePlayerRecordItem(player_data) {
     return player;
 }
 
-const container = document.getElementById("container");
+const players_container = document.getElementById("players_container");
 
 function createPlayerGrid(players) {
-  container.innerHTML = ""
+  players_container.innerHTML = ""
   rows = players.length/3; cols = 3;
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
+  players_container.style.setProperty('--grid-rows', rows);
+  players_container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < rows*cols; c++) {
     let cell = CreatePlayerRecordItem(players[c]);
-    container.appendChild(cell);
+    players_container.appendChild(cell);
   };
 };
 
 function loadPlayerProfile() {
-    const data = null;
+  const data = null;
   const xhr = new XMLHttpRequest();
   
   xhr.addEventListener("readystatechange", function () {
@@ -106,10 +105,4 @@ function loadAllPlayers() {
   xhr.send(data);
 }
 
-loadAllPlayers()
-
-
-
-
-// let player_cell = document.getElementById("player-name-header");
-// player_cell.addEventListener('click', showInfo); 
+loadAllPlayers();

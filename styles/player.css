@@ -20,10 +20,6 @@
     color: #ffffff;
 }
 
-.player-box {
-    display: none;
-}
-
 .player-box figure {
     padding: 4px;
     border: 2px solid #1F2833;
@@ -78,34 +74,3 @@
     display: flex;
 }
 
-#title {
-    width: 60%;
-    padding: 20px;
-    display: block;
-    margin: 0 auto;
-    font-size: 16px;
-    color: #1F2833;
-    background-color: #ffffff;
-    /* text-transform: uppercase; */
-}
-
-#title h1 {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 4px solid #1F2833;
-}
-
-:root {
-    --grid-cols: 1;
-    --grid-rows: 1;
-}
-
-#container {
-    width: 60%;
-    padding: 20px;
-    display: grid;
-    margin: 0 auto;
-    grid-gap: 1em;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-}

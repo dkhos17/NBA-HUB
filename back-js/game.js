@@ -58,16 +58,16 @@ function CreateGameRecordItem(game_data) {
     return game;
 }
 
-const container = document.getElementById("container");
+const games_container = document.getElementById("games_container");
 
 function createGameGrid(games) {
-  container.innerHTML = ""
+  games_container.innerHTML = ""
   rows = games.data.length/2; cols = 2;
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
+  games_container.style.setProperty('--grid-rows', rows);
+  games_container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < rows*cols; c++) {
-    let cell = CreateGameRecordItem(games.data[c])
-    container.appendChild(cell)
+    let cell = CreateGameRecordItem(games.data[c]);
+    games_container.appendChild(cell);
   };
 };
 
