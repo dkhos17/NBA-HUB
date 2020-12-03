@@ -89,20 +89,20 @@ function loadAllGames(page, per_page) {
   xhr.send(data);
 }
 
-var CURR_PAGE = 0;
-var MAX_PAGES = 3;
-var PER_PAGE = 24;
-loadAllGames(CURR_PAGE, PER_PAGE)
+var GAMES_CURR_PAGE = 0;
+var GAMES_MAX_PAGES = 3;
+var GAMES_PER_PAGE = 24;
+loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE);
 
-var next_butt = document.getElementById("nextButton");
-next_butt.addEventListener("click", function() {
-    CURR_PAGE += 1; CURR_PAGE %= MAX_PAGES;
-    loadAllGames(CURR_PAGE, PER_PAGE);
+var games_next_butt = document.getElementById("gamesNextButton");
+games_next_butt.addEventListener("click", function() {
+    GAMES_CURR_PAGE += 1; GAMES_CURR_PAGE %= GAMES_MAX_PAGES;
+    loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE);
 });
 
-var prev_butt = document.getElementById("prevButton");
-prev_butt.addEventListener("click", function() {
-    CURR_PAGE -= 1; CURR_PAGE += MAX_PAGES; CURR_PAGE %= MAX_PAGES;
-    loadAllGames(CURR_PAGE, PER_PAGE);
+var games_prev_butt = document.getElementById("gamesPrevButton");
+games_prev_butt.addEventListener("click", function() {
+    GAMES_CURR_PAGE -= 1; GAMES_CURR_PAGE += GAMES_MAX_PAGES;GAMES_CURR_PAGE %= GAMES_MAX_PAGES;
+    loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE);
 });
 

@@ -69,30 +69,3 @@
     font-size: 15px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
-.pages {
-    text-align: center;
-}
-
-.pages a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-}
-
-.pages a:hover {
-    background-color: #1F2833;
-    color: #00fd4c;
-}
-
-.prev, .next {
-    margin: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #00fd4c;
-    color: #1F2833;
-}
-
-.round {
-    border-radius: 50%;
-}

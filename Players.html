@@ -37,7 +37,7 @@
 
     <div class="player-profile">
         <article class="player-box">
-            <figure class="player-info-figure">
+            <figure class="player-info-figure" style="background-color: #1F2833; color: #fd4400;">
                 <a id="profile_wiki" href="https://en.wikipedia.org/wiki/LeBron_James"> 
                     <img id="profile_img" src="https://nba-players.herokuapp.com/players/james/lebron"> 
                 </a>
@@ -51,7 +51,7 @@
                 </div>
             </figure>
         
-            <figure>
+            <figure style="background-color: #1F2833; color: #fd4400;">
                 <h1 class="player-per-game-h"> --- PLAYER PER GAME STATS --- </h1>
                 <div class="player-per-game">
                     <div class="per-game">
@@ -94,6 +94,11 @@
     </section>
    
     <div class="container" id="players_container"></div>
+
+    <div class="pages">
+      <a class="prev round" id="playersPrevButton"> &#8249; </a>
+      <a class="next round" id="playersNextButton"> &#8250; </a>
+    </div>
 </div>
 
 <script src="back-js/player.js"></script>

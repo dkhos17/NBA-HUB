@@ -64,7 +64,7 @@ const players_container = document.getElementById("players_container");
 
 function createPlayerGrid(players) {
   players_container.innerHTML = ""
-  rows = players.length/3; cols = 3;
+  rows = players.length/2; cols = 2;
   players_container.style.setProperty('--grid-rows', rows);
   players_container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < rows*cols; c++) {
@@ -73,7 +73,7 @@ function createPlayerGrid(players) {
   };
 };
 
-function loadPlayerProfile() {
+function loadPlayerProfile(first_name, last_name) {
   const data = null;
   const xhr = new XMLHttpRequest();
   
@@ -84,20 +84,20 @@ function loadPlayerProfile() {
     }
   });
   
-  xhr.open("GET", "https://nba-players.herokuapp.com/players-stats/james/lebron");
+  xhr.open("GET", "https://nba-players.herokuapp.com/players-stats/"+last_name+'/'+first_name);
   xhr.send(data);
 }
 
-loadPlayerProfile();
+loadPlayerProfile("lebron", "james");
 
-function loadAllPlayers() {
+function loadAllPlayers(page, per_page) {
   const data = null;
   const xhr = new XMLHttpRequest();
   
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
       var players = JSON.parse(this.response);
-      createPlayerGrid(players);
+      createPlayerGrid(players.slice(page*per_page, (page+1)*per_page));
     }
   });
   
@@ -105,4 +105,21 @@ function loadAllPlayers() {
   xhr.send(data);
 }
 
-loadAllPlayers();
+var PLAYERS_CURR_PAGE = 0;
+var PLAYERS_MAX_PAGES = 3;
+var PLAYERS_PER_PAGE = 24;
+loadAllPlayers(PLAYERS_CURR_PAGE, PLAYERS_PER_PAGE);
+
+var players_next_butt = document.getElementById("playersNextButton");
+players_next_butt.addEventListener("click", function() {
+    PLAYERS_CURR_PAGE += 1; PLAYERS_CURR_PAGE %= PLAYERS_MAX_PAGES;
+    loadAllPlayers(PLAYERS_CURR_PAGE, PLAYERS_PER_PAGE);
+});
+
+var players_prev_butt = document.getElementById("playersPrevButton");
+players_prev_butt.addEventListener("click", function() {
+    PLAYERS_CURR_PAGE -= 1; PLAYERS_CURR_PAGE += PLAYERS_MAX_PAGES; PLAYERS_CURR_PAGE %= PLAYERS_MAX_PAGES;
+    loadAllPlayers(PLAYERS_CURR_PAGE, PLAYERS_PER_PAGE);
+});
+
+
