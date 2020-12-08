@@ -30,3 +30,6 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
     slides[slideIndex - 1].style.display = "block";
 }
+
+var search = document.getElementById('search-li')
+search.style.display = 'none'

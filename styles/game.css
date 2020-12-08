@@ -42,11 +42,12 @@
     padding: 6px;
 }
 
-.abbreviation h1, .abbreviation h2 {
+.abbreviation h1, .abbreviation h2, .abbreviation a {
+    font-size: 20px;
     margin-top: 30px;
     color: #00fd4c;
 }
-.abbreviation h1:hover, .abbreviation h2:hover {
+.abbreviation h1:hover, .abbreviation h2:hover, .abbreviation a:hover {
     color: #FF851B;
 }
 

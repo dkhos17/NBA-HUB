@@ -138,3 +138,31 @@ a {
 .round {
     border-radius: 50%;
 }
+
+#searchInput {
+    float: right;
+    outline:none;
+    border: none;
+    font-size: 14px;
+    height: 24px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: sans-serif;
+    background-color: #fd4400;
+}
+
+::placeholder {
+    color: #1F2833;
+}
+#searchButton {
+    float: right;
+    outline:none;
+    border: none;
+    background-color: #fd4400;
+}
+
+#searchButton img {
+    width: 24px;
+    height: 24px;
+    object-fit: fit;
+}

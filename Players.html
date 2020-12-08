@@ -21,9 +21,13 @@
       <ul>
         <li><a href="Home.html">Home</a></li>
         <li><a href="Games.html">Games</a></li>
-        <li><a href="Teams.html">Teams</a></li>
-        <li><a href="Players.html">Players</a></li>
+        <li><a href="Teams.html?team=mia">Teams</a></li>
+        <li><a href="Players.html?player=LeBron&James">Players</a></li>
         <li><a href="#">Stats</a></li>
+        <li id="search-li">
+          <button id="searchButton"> <img src="resources/search-icon.png">  </button>
+          <input id="searchInput"type="text" placeholder="Search...">
+        </li>
       </ul>
     </nav>
 
@@ -35,11 +39,11 @@
         <h1 id="player_profile_name">PLAYER PROFILE - LeBron James </h1>
     </section>
 
-    <div class="player-profile">
+    <div class="player-profile" id="player_profile">
         <article class="player-box">
             <figure class="player-info-figure" style="background-color: #1F2833; color: #fd4400;">
-                <a id="profile_wiki" href="https://en.wikipedia.org/wiki/LeBron_James"> 
-                    <img id="profile_img" src="https://nba-players.herokuapp.com/players/james/lebron"> 
+                 <a id="profile_wiki">  <!-- href="https://en.wikipedia.org/wiki/LeBron_James">  -->
+                    <img id="profile_img" > <!-- src="https://nba-players.herokuapp.com/players/james/lebron">  -->
                 </a>
         
                 <div class="player-info">

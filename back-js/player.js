@@ -47,10 +47,10 @@ function CreatePlayerRecordItem(player_data) {
     player.setAttribute('class', 'player-cell');
     prof_img.setAttribute('src', 'https://nba-players.herokuapp.com/players/' + player_data.name.split(' ')[1].toLowerCase() + '/' + player_data.name.split(' ')[0].toLowerCase());
     prof_img.setAttribute('onerror', "src='resources/inco_player.png'");
-
-    a.addEventListener('click', function() {
-        showPlayerProfile(player_data);
-    });
+    a.setAttribute('href', 'Players.html?player=' + player_data.name.split(' ')[0] +'&' + player_data.name.split(' ')[1]);
+    // a.addEventListener('click', function() {
+    //     showPlayerProfile(player_data);
+    // });
 
     player_name_header.innerHTML = '---&nbsp' + player_data.name + '&nbsp---';
     a.appendChild(player_name_header);
@@ -88,7 +88,8 @@ function loadPlayerProfile(first_name, last_name) {
   xhr.send(data);
 }
 
-loadPlayerProfile("lebron", "james");
+var player_profile_to_load = window.location.href.split('=')[1].split('&');
+loadPlayerProfile(player_profile_to_load[0].toLowerCase(), player_profile_to_load[1].toLowerCase());
 
 function loadAllPlayers(page, per_page) {
   const data = null;
@@ -122,4 +123,29 @@ players_prev_butt.addEventListener("click", function() {
     loadAllPlayers(PLAYERS_CURR_PAGE, PLAYERS_PER_PAGE);
 });
 
+var search = document.getElementById('searchButton');
+search.addEventListener('click', function() {
+  var search_text = document.getElementById('searchInput').value.toLowerCase();
+  const data = null;
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      var players = JSON.parse(this.response);
+      for(var i = 0; i < players.length; i++) {
+        if(players[i].name.toLowerCase() == search_text) {
+          loadPlayerProfile(search_text.split(' ')[0], search_text.split(' ')[1]);
+          window.location.href = window.location.href.split('?')[0]+'?search='+search_text.split(' ')[0]+'&'+search_text.split(' ')[1];
+          return
+        }
+      }
+      var player_profile = document.getElementById('player_profile');
+      var player_profile_name = document.getElementById('player_profile_name');
+      player_profile.style.display = 'none';
+      player_profile_name.innerHTML = 'PLAYER PROFILE - ' + search_text.toUpperCase() + '&nbsp NOT FOUND';
+    }
+  });
+  
+  xhr.open("GET", "https://nba-players.herokuapp.com/players-stats");
+  xhr.send(data);
 
+});

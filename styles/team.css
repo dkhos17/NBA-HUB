@@ -29,31 +29,23 @@
     height: 150px;
 }
 
-.pages {
-    text-align: center;
+#team_abbreviation {
+    margin: 10px 10px;
+    border-bottom: 2px solid #FF851B;
 }
 
-.pages a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-}
-
-.pages a:hover {
-    background-color: #1F2833;
+#team_abbreviation a {
+    font-size: 20px;
     color: #00fd4c;
+    text-decoration: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.prev, .next {
-    margin: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #00fd4c;
-    color: #1F2833;
-}
-
-.round {
-    border-radius: 50%;
+#team_abbreviation a:hover {
+    color: #FF851B;
+    text-decoration: none;
 }
 
 .team-profile {
