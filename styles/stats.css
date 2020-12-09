@@ -1,0 +1,85 @@
+#compare_teams_figure, #compare_players_figure {
+    padding: 4px;
+    height: auto;
+    text-align: center;
+    border: 3px solid #fd4400;
+    background-color: black;   
+}
+
+#left_corner_team {
+    float: left;
+    width: 30%;
+}
+
+
+#right_corner_team {
+    float: right;
+    width: 30%;
+}
+
+#compareTeamsButton {
+    width: 30%;
+}
+
+::placeholder {
+    /* color: #1F2833; */
+    color: white;
+}
+
+.search_input {
+    outline:none;
+    border: none;
+    font-size: 24px;
+    height: 48px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: sans-serif;
+}
+
+#leftTeamInput {
+    color: white;
+    background-color: red;
+}
+
+#rightTeamInput {
+    color: white;
+    background-color: blue;
+}
+
+.comapre_button {
+    width: 200px;
+    font-size: 24px;
+    height: 48px;
+    outline:none;
+    border: none;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+    background-color: #1F2833;
+}
+
+#compare_result {
+    /* color: white;
+    border-color: white; */
+}
+
+.team_result {
+    display: none;
+}
+
+.team_result img {
+    width: 128px;
+    height: 128px;
+    margin: 10px;
+    border: 3px solid white;
+}
+
+#left_team_result {
+    width: 45%;
+    float: left;
+}
+
+#right_team_result {
+    width: 45%;
+    float: right;
+}

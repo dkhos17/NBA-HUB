@@ -31,5 +31,5 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
 }
 
-var search = document.getElementById('search-li')
-search.style.display = 'none'
+var search = document.getElementById('search-li');
+search.style.display = 'none';
