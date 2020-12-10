@@ -8,7 +8,7 @@ function showPlayerProfile(player_data) {
 
     var img = document.getElementById("profile_img");
     img.setAttribute('src', 'https://nba-players.herokuapp.com/players/' + player_data.name.split(' ')[1].toLowerCase() + '/' + player_data.name.split(' ')[0].toLowerCase());
-    img.setAttribute('onerror', "src='resources/inco_player.png'");
+    img.setAttribute('onerror', "src='resources/player_default.png'");
 
     var a = document.getElementById("profile_wiki");
     a.setAttribute('href', 'https://en.wikipedia.org/wiki/' + player_data.name);

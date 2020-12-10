@@ -12,7 +12,8 @@ function showTeamProfile(team_data) {
 
   var img = document.getElementById("team_profile_img");
   img.setAttribute('src', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/' + team_data.abbreviation.toLowerCase() + '.png');
-  
+  img.setAttribute('onerror', "src='resources/team_default.png'");
+
   helper("team_profile_name", '-', team_data.abbreviation);
   helper("team_details", ':', team_data.abbreviation);
   helper("team_city", ':', team_data.city);
