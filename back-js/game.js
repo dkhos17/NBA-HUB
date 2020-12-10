@@ -1,5 +1,5 @@
 function CreateGameRecordItem(game_data) {
-    var game = document.createElement('data');
+    var game = document.createElement('div');
     var article = document.createElement('article');
     var figure = document.createElement('figure');
 
@@ -15,6 +15,7 @@ function CreateGameRecordItem(game_data) {
     var period = document.createElement('h2');
     var season_status = document.createElement('h2');
 
+    game.setAttribute('class', 'game_cell');
     article.setAttribute('class', 'game-box');
     figure.setAttribute('class', 'result');
     
@@ -87,6 +88,17 @@ function loadAllGames(page, per_page, like) {
     if (this.readyState === this.DONE) {
       var games = JSON.parse(this.response);
       createGameGrid(games, like);
+      var games_list = document.getElementById("games_list");
+      if(like.length > 0) {
+        if(games_list.innerHTML.includes('All')) {
+          games_list.innerHTML = games.data.length + '&nbspGames We Found For&nbsp' + like.toUpperCase();
+        } else {
+          var tot = parseInt(games_list.innerHTML.split(' ')[0]) + games.data.length;
+          games_list.innerHTML = tot + '&nbspGames We Found For&nbsp' + like.toUpperCase();
+        }
+      } else {
+        games_list.innerHTML = 'All Games We Got';
+      }
     }
   });
   
@@ -96,33 +108,52 @@ function loadAllGames(page, per_page, like) {
   xhr.send(data);
 }
 
-var GAMES_CURR_PAGE = 0;
-var GAMES_MAX_PAGES = 3;
+var GAMES_CURR_PAGE = parseInt(window.location.href.split('?')[1].split('&')[0].split('=')[1]);
+var GAMES_MAX_PAGES = 24;
 var GAMES_PER_PAGE = 24;
-var SEARCH_MODE = true;
-loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
+var SEARCH_MODE = false;
 
 var games_next_butt = document.getElementById("gamesNextButton");
 games_next_butt.addEventListener("click", function() {
-    if(!SEARCH_MODE) {return}
+    if(SEARCH_MODE) {return}
     GAMES_CURR_PAGE += 1; GAMES_CURR_PAGE %= GAMES_MAX_PAGES;
-    loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
+    if(GAMES_CURR_PAGE == 0) GAMES_CURR_PAGE++;
+    window.location.href = window.location.href.split('=')[0] + '=' + GAMES_CURR_PAGE;
 });
 
 var games_prev_butt = document.getElementById("gamesPrevButton");
 games_prev_butt.addEventListener("click", function() {
-    if(!SEARCH_MODE) {return}
+    if(SEARCH_MODE) {return}
     GAMES_CURR_PAGE -= 1; GAMES_CURR_PAGE += GAMES_MAX_PAGES;GAMES_CURR_PAGE %= GAMES_MAX_PAGES;
-    loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
+    if(GAMES_CURR_PAGE == 0) GAMES_CURR_PAGE++;
+    window.location.href = window.location.href.split('=')[0] + '=' + GAMES_CURR_PAGE;
 });
+
+
+function filterBy(search_text) {
+  document.getElementById('searchInput').value = search_text;
+  search_text = search_text.toLowerCase();
+  games_container.innerHTML = "";
+  for(var i = 1; i <= GAMES_MAX_PAGES; i++) {
+    loadAllGames(i, 24, search_text);
+  }
+}
+
+if(window.location.href.includes('search')) {
+  var searchAttr = window.location.href.split('?')[1].split('&')[1].split('=')[1];
+  if(searchAttr == 'All') {
+    loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
+  } else {
+    SEARCH_MODE = true;
+    filterBy(searchAttr);
+  }
+} else {
+  loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
+}
 
 var search = document.getElementById('searchButton');
 search.addEventListener('click', function() {
-  var search_text = document.getElementById('searchInput').value.toLowerCase();
-  games_container.innerHTML = ""
-  SEARCH_MODE = (search_text.length == 0);
-  loadAllGames(0, 24, search_text);
-  loadAllGames(1, 24, search_text);
-  loadAllGames(2, 24, search_text);
-  loadAllGames(3, 24, search_text);
+  var searchText = document.getElementById('searchInput').value;
+  if(searchText.length == 0) searchText = 'All';
+  window.location.href = window.location.href.split('=')[0] + '=' + GAMES_CURR_PAGE + "&search=" + searchText;
 });

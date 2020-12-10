@@ -154,11 +154,18 @@ function createTeamGrid(teams) {
   for (c = 0; c < rows*cols; c++) {
     if(teams.data[c].abbreviation.toLowerCase() == team_profile_to_load) {
       loadTeamProfile(teams.data[c]);
+      team_profile_to_load = 'found';
     }
     let cell = CreateTeamRecordItem(teams.data[c]);
     team_container.appendChild(cell);
   };
 
+  if(team_profile_to_load != 'found') {
+    var team_profile = document.getElementById('team_profile_box');
+    var team_profile_name = document.getElementById('team_profile_name');
+    team_profile.style.display = 'none';
+    team_profile_name.innerHTML = 'TEAM PROFILE - ' + team_profile_to_load.toUpperCase() + '&nbspNOT FOUND';
+  }
 };
 
 function loadAllTeams() {
@@ -183,25 +190,7 @@ loadAllTeams();
 
 var search = document.getElementById('searchButton')
 search.addEventListener('click', function() {
-  const data = null;
-  const xhr = new XMLHttpRequest();
-  xhr.withCredentials = true;
-  
-  var search_text = document.getElementById('searchInput').value.toLowerCase();
-  xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === this.DONE) {
-      var teams = JSON.parse(this.response);
-      for(var i = 0; i < teams.data.length; i++) {
-        if(teams.data[i].abbreviation.toLowerCase() == search_text) {
-          loadTeamProfile(teams.data[i]);
-          return;
-        }
-      }
-    }
-  });
-  
-  xhr.open("GET", "https://free-nba.p.rapidapi.com/teams?page=0");
-  xhr.setRequestHeader("x-rapidapi-key", "0bfb131022mshdfb44f698b8dae2p1ca3bajsne4fa8745db09");
-  xhr.setRequestHeader("x-rapidapi-host", "free-nba.p.rapidapi.com");
-  xhr.send(data);
+  var serach_team = document.getElementById('searchInput').value;
+  if(serach_team.length == 0) {return}
+  window.location.href = window.location.href.split('=')[0] + '=' + serach_team;
 });

@@ -20,9 +20,9 @@
     <nav>
       <ul>
         <li><a href="Home.html">Home</a></li>
-        <li><a href="Games.html">Games</a></li>
+        <li><a href="Games.html?page=1">Games</a></li>
         <li><a href="Teams.html?team=mia">Teams</a></li>
-        <li><a href="Players.html?player=LeBron&James">Players</a></li>
+        <li><a href="Players.html?page=0&player=LeBron-James">Players</a></li>
         <li><a href="Stats.html">Stats</a></li>
         <li id="search-li">
             <button id="searchButton"> <img src="resources/search-icon.png">  </button>
@@ -39,11 +39,11 @@
       <h1 id="team_profile_name"> PLAYER PROFILE - TEAM </h1>
     </section>
     <div class="team-profile">
-      <article class="team-box">
+      <article class="team-box" id="team_profile_box">
         <figure class="">
             <img id="team_profile_img" src="resources/team_default.png">
             <div class="player-info">
-                <h1 id="team_details"> --- ABBREVIATION ---</h1>
+                <h1 id="team_details"> --- NBA ---</h1>
                 <div id="team_details_div">
                   <h2 id="team_city"> City:  </h2>
                   <h2 id="team_conference"> Conference:  </h2>
