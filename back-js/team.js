@@ -83,7 +83,7 @@ function CreateTeamPlayerRecordItem(player_data, idx) {
   var player_name = document.createElement('h2');
 
   player_name.innerHTML = idx.toString() + ")&nbsp&nbsp" + player_data.name;
-  a.setAttribute('href', 'Players.html?player=' + player_data.name.split(' ')[0] +'&' + player_data.name.split(' ')[1]);
+  a.setAttribute('href', 'Players.html?page=0&player=' + player_data.name.split(' ')[0] +'-' + player_data.name.split(' ')[1]);
   a.appendChild(player_name);
   player.appendChild(a);
   return player;

@@ -38,8 +38,8 @@
     <div class="compare">
         <div class="title">
             <h1 id="compare_teams">NBA Stats - Compare Teams</h1>
-            <div id="compare_teams_figure" style="height: 600px;">
-                <div>
+            <div id="compare_teams_figure">
+                <div class="cmpr_div">
                     <div id="left_corner_team"> 
                         <input class="search_input" id="leftTeamInput"type="text" placeholder="Left Corner...">
                     </div>
@@ -48,60 +48,78 @@
                         <input class="search_input" id="rightTeamInput"type="text" placeholder="Right Corner...">
                     </div>
                 </div>
-                <h1 id="compare_result">COMPARISION WINNER</h1>
+                <h2 class="compare_result">THE WINNER</h2>
+                <h2 class="compare_result">IS</h2>
+                <h1 class="compare_result" id="winner_team"> ... </h1>
 
-                <div id="left_team_result" class="team_result">
-                    <img id="left_team_profile_img" >
-                    <h2 id="left_field_goals_attempted_per_game"> Goals attempted:</h2>
-                    <h2 id="left_field_goals_made_per_game"> Goals made:  </h2>
-                    <h2 id="left_field_goal_percentage"> Goals percentage: </h2>
-        
-                    <h2 id="left_free_throw_percentage"> Throw percentage: </h2>
-                    <h2 id="left_three_point_attempted_per_game"> Three point attempted: </h2>
-                    <h2 id="left_three_point_made_per_game"> Three point made: </h2>
-                    <h2 id="left_three_point_percentage"> Three point percentage: </h2>
-        
-                    <h2 id="left_points_per_game"> Points: </h2>
-                    <h2 id="left_offensive_rebounds_per_game"> Offensive Rebounds: </h2>
-                    <h2 id="left_defensive_rebounds_per_game"> Defensive Rebounds: </h2>
-                    <h2 id="left_rebounds_per_game"> Rebounds: </h2>
-        
-                    <h2 id="left_assists_per_game"> Assists: </h2>
-                    <h2 id="left_steals_per_game"> Steals: </h2>
-                    <h2 id="left_blocks_per_game"> Blocks: </h2>
-                    <h2 id="left_turnovers_per_game"> Turnovers: </h2>
-                    <h2 id="left_player_efficiency_rating" style="font-style: oblique"> Team efficiency rating: </h2>
+                <div id="team_results">
+                    <div id="left_team_result" class="team_result">
+                      <img id="left_team_profile_img">
+                      <h1 id="left_team_abv" style="color: white;"> </h1>
+                      <h2 id="left_field_goals_attempted_per_game"> Goals attempted:</h2>
+                      <h2 id="left_field_goals_made_per_game"> Goals made:  </h2>
+                      <h2 id="left_field_goal_percentage"> Goals percentage: </h2>
+          
+                      <h2 id="left_free_throw_percentage"> Throw percentage: </h2>
+                      <h2 id="left_three_point_attempted_per_game"> Three point attempted: </h2>
+                      <h2 id="left_three_point_made_per_game"> Three point made: </h2>
+                      <h2 id="left_three_point_percentage"> Three point percentage: </h2>
+          
+                      <h2 id="left_points_per_game"> Points: </h2>
+                      <h2 id="left_offensive_rebounds_per_game"> Offensive Rebounds: </h2>
+                      <h2 id="left_defensive_rebounds_per_game"> Defensive Rebounds: </h2>
+                      <h2 id="left_rebounds_per_game"> Rebounds: </h2>
+          
+                      <h2 id="left_assists_per_game"> Assists: </h2>
+                      <h2 id="left_steals_per_game"> Steals: </h2>
+                      <h2 id="left_blocks_per_game"> Blocks: </h2>
+                      <h2 id="left_turnovers_per_game"> Turnovers: </h2>
+                      <h2 id="left_player_efficiency_rating" style="font-style: oblique"> Team efficiency rating: </h2>
+                  </div>
+                  
+                  <div id="right_team_result" class="team_result">
+                      <img id="right_team_profile_img" >
+                      <h1 id="right_team_abv" style="color: white;"> </h1>
+                      <h2 id="right_field_goals_attempted_per_game"> Goals attempted:</h2>
+                      <h2 id="right_field_goals_made_per_game"> Goals made:  </h2>
+                      <h2 id="right_field_goal_percentage"> Goals percentage: </h2>
+          
+                      <h2 id="right_free_throw_percentage"> Throw percentage: </h2>
+                      <h2 id="right_three_point_attempted_per_game"> Three point attempted: </h2>
+                      <h2 id="right_three_point_made_per_game"> Three point made: </h2>
+                      <h2 id="right_three_point_percentage"> Three point percentage: </h2>
+          
+                      <h2 id="right_points_per_game"> Points: </h2>
+                      <h2 id="right_offensive_rebounds_per_game"> Offensive Rebounds: </h2>
+                      <h2 id="right_defensive_rebounds_per_game"> Defensive Rebounds: </h2>
+                      <h2 id="right_rebounds_per_game"> Rebounds: </h2>
+          
+                      <h2 id="right_assists_per_game"> Assists: </h2>
+                      <h2 id="right_steals_per_game"> Steals: </h2>
+                      <h2 id="right_blocks_per_game"> Blocks: </h2>
+                      <h2 id="right_turnovers_per_game"> Turnovers: </h2>
+                      <h2 id="right_player_efficiency_rating" style="font-style: oblique;"> Team efficiency rating: </h2>
+                  </div>
                 </div>
                 
-                <div id="right_team_result" class="team_result">
-                    <img id="right_team_profile_img" >
-                    <h2 id="right_field_goals_attempted_per_game"> Goals attempted:</h2>
-                    <h2 id="right_field_goals_made_per_game"> Goals made:  </h2>
-                    <h2 id="right_field_goal_percentage"> Goals percentage: </h2>
-        
-                    <h2 id="right_free_throw_percentage"> Throw percentage: </h2>
-                    <h2 id="right_three_point_attempted_per_game"> Three point attempted: </h2>
-                    <h2 id="right_three_point_made_per_game"> Three point made: </h2>
-                    <h2 id="right_three_point_percentage"> Three point percentage: </h2>
-        
-                    <h2 id="right_points_per_game"> Points: </h2>
-                    <h2 id="right_offensive_rebounds_per_game"> Offensive Rebounds: </h2>
-                    <h2 id="right_defensive_rebounds_per_game"> Defensive Rebounds: </h2>
-                    <h2 id="right_rebounds_per_game"> Rebounds: </h2>
-        
-                    <h2 id="right_assists_per_game"> Assists: </h2>
-                    <h2 id="right_steals_per_game"> Steals: </h2>
-                    <h2 id="right_blocks_per_game"> Blocks: </h2>
-                    <h2 id="right_turnovers_per_game"> Turnovers: </h2>
-                    <h2 id="right_player_efficiency_rating" style="font-style: oblique;"> Team efficiency rating: </h2>
-                </div>
             </div>
         </div>
     
         <div class="title">
             <h1 id="compare_players">NBA Stats - Compare Players</h1>
             <div id="compare_players_figure">
-                
+                <div class="cmpr_div">
+                  <div id="left_corner_player"> 
+                      <input class="search_input" id="leftPlayerInput"type="text" placeholder="Left Corner...">
+                  </div>
+                  <button class="comapre_button" id="comparePlayersButton"> VS </button>
+                  <div id="right_corner_player"> 
+                      <input class="search_input" id="rightPlayerInput"type="text" placeholder="Right Corner...">
+                  </div>
+                </div>
+                <h2 class="compare_result">THE WINNER</h2>
+                <h2 class="compare_result">IS</h2>
+                <h1 class="compare_result" id="winner_player"> ... </h1>
             </div>
         </div>
     </div>

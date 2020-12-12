@@ -1,23 +1,24 @@
 #compare_teams_figure, #compare_players_figure {
+    display: flex;
+    flex-direction: column;
     padding: 4px;
     height: auto;
     text-align: center;
     border: 3px solid #fd4400;
-    background-color: black;   
+    background-color: black;  
+}
+
+.cmpr_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #left_corner_team {
-    float: left;
     width: 30%;
 }
-
 
 #right_corner_team {
-    float: right;
-    width: 30%;
-}
-
-#compareTeamsButton {
     width: 30%;
 }
 
@@ -46,8 +47,18 @@
     background-color: blue;
 }
 
+#leftPlayerInput {
+    color: white;
+    background-color: red;
+}
+
+#rightPlayerInput {
+    color: white;
+    background-color: blue;
+}
+
 .comapre_button {
-    width: 200px;
+    width: 30%;
     font-size: 24px;
     height: 48px;
     outline:none;
@@ -58,9 +69,14 @@
     background-color: #1F2833;
 }
 
-#compare_result {
-    /* color: white;
-    border-color: white; */
+.compare_result {
+    color:  #fd4400;
+    font-size: 24px;
+}
+
+#winner_team {
+    color: #fd4400;
+    font-size: 28px;
 }
 
 .team_result {
