@@ -55,7 +55,7 @@
                 <div id="team_results">
                     <div id="left_team_result" class="team_result">
                       <img id="left_team_profile_img">
-                      <h1 id="left_team_abv" style="color: white;"> </h1>
+                      <h1 id="left_team_abv" style="color: red;"> </h1>
                       <h2 id="left_field_goals_attempted_per_game"> Goals attempted:</h2>
                       <h2 id="left_field_goals_made_per_game"> Goals made:  </h2>
                       <h2 id="left_field_goal_percentage"> Goals percentage: </h2>
@@ -74,12 +74,12 @@
                       <h2 id="left_steals_per_game"> Steals: </h2>
                       <h2 id="left_blocks_per_game"> Blocks: </h2>
                       <h2 id="left_turnovers_per_game"> Turnovers: </h2>
-                      <h2 id="left_player_efficiency_rating" style="font-style: oblique"> Team efficiency rating: </h2>
+                      <h2 id="left_team_efficiency_rating" style="font-style: oblique"> Team efficiency rating: </h2>
                   </div>
                   
                   <div id="right_team_result" class="team_result">
                       <img id="right_team_profile_img" >
-                      <h1 id="right_team_abv" style="color: white;"> </h1>
+                      <h1 id="right_team_abv" style="color: blue;"> </h1>
                       <h2 id="right_field_goals_attempted_per_game"> Goals attempted:</h2>
                       <h2 id="right_field_goals_made_per_game"> Goals made:  </h2>
                       <h2 id="right_field_goal_percentage"> Goals percentage: </h2>
@@ -98,7 +98,7 @@
                       <h2 id="right_steals_per_game"> Steals: </h2>
                       <h2 id="right_blocks_per_game"> Blocks: </h2>
                       <h2 id="right_turnovers_per_game"> Turnovers: </h2>
-                      <h2 id="right_player_efficiency_rating" style="font-style: oblique;"> Team efficiency rating: </h2>
+                      <h2 id="right_team_efficiency_rating" style="font-style: oblique;"> Team efficiency rating: </h2>
                   </div>
                 </div>
                 
@@ -120,10 +120,67 @@
                 <h2 class="compare_result">THE WINNER</h2>
                 <h2 class="compare_result">IS</h2>
                 <h1 class="compare_result" id="winner_player"> ... </h1>
+
+                <div id="player_results">
+                  <div id="left_player_result" class="player_result">
+                    <img id="left_player_profile_img">
+                    <h1 id="left_player_abv" style="color: red;"> </h1>
+                    <h2 id="left_player_field_goals_attempted_per_game"> Goals attempted:</h2>
+                    <h2 id="left_player_field_goals_made_per_game"> Goals made:  </h2>
+                    <h2 id="left_player_field_goal_percentage"> Goals percentage: </h2>
+        
+                    <h2 id="left_player_free_throw_percentage"> Throw percentage: </h2>
+                    <h2 id="left_player_three_point_attempted_per_game"> Three point attempted: </h2>
+                    <h2 id="left_player_three_point_made_per_game"> Three point made: </h2>
+                    <h2 id="left_player_three_point_percentage"> Three point percentage: </h2>
+        
+                    <h2 id="left_player_points_per_game"> Points: </h2>
+                    <h2 id="left_player_offensive_rebounds_per_game"> Offensive Rebounds: </h2>
+                    <h2 id="left_player_defensive_rebounds_per_game"> Defensive Rebounds: </h2>
+                    <h2 id="left_player_rebounds_per_game"> Rebounds: </h2>
+        
+                    <h2 id="left_player_assists_per_game"> Assists: </h2>
+                    <h2 id="left_player_steals_per_game"> Steals: </h2>
+                    <h2 id="left_player_blocks_per_game"> Blocks: </h2>
+                    <h2 id="left_player_turnovers_per_game"> Turnovers: </h2>
+                    <h2 id="left_player_efficiency_rating" style="font-style: oblique"> Team efficiency rating: </h2>
+                </div>
+                
+                <div id="right_player_result" class="player_result">
+                    <img id="right_player_profile_img" >
+                    <h1 id="right_player_abv" style="color: blue;"> </h1>
+                    <h2 id="right_player_field_goals_attempted_per_game"> Goals attempted:</h2>
+                    <h2 id="right_player_field_goals_made_per_game"> Goals made:  </h2>
+                    <h2 id="right_player_field_goal_percentage"> Goals percentage: </h2>
+        
+                    <h2 id="right_player_free_throw_percentage"> Throw percentage: </h2>
+                    <h2 id="right_player_three_point_attempted_per_game"> Three point attempted: </h2>
+                    <h2 id="right_player_three_point_made_per_game"> Three point made: </h2>
+                    <h2 id="right_player_three_point_percentage"> Three point percentage: </h2>
+        
+                    <h2 id="right_player_points_per_game"> Points: </h2>
+                    <h2 id="right_player_offensive_rebounds_per_game"> Offensive Rebounds: </h2>
+                    <h2 id="right_player_defensive_rebounds_per_game"> Defensive Rebounds: </h2>
+                    <h2 id="right_player_rebounds_per_game"> Rebounds: </h2>
+        
+                    <h2 id="right_player_assists_per_game"> Assists: </h2>
+                    <h2 id="right_player_steals_per_game"> Steals: </h2>
+                    <h2 id="right_player_blocks_per_game"> Blocks: </h2>
+                    <h2 id="right_player_turnovers_per_game"> Turnovers: </h2>
+                    <h2 id="right_player_efficiency_rating" style="font-style: oblique;"> Team efficiency rating: </h2>
+                </div>
+              </div>
             </div>
         </div>
     </div>
 
+    <div class="title">
+      <h1> All Teams </h1>
+      <div id="all_teams_container"></div>
+      <h1> All Players </h1>
+      <div id="all_players_container"></div>
+    </div>
+    
 </div>
 
 <script src="back-js/stats.js"></script>

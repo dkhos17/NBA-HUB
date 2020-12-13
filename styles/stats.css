@@ -14,11 +14,11 @@
     justify-content: space-between;
 }
 
-#left_corner_team {
+#left_corner_team, #left_corner_player {
     width: 30%;
 }
 
-#right_corner_team {
+#right_corner_team, right_corner_player {
     width: 30%;
 }
 
@@ -70,16 +70,16 @@
 }
 
 .compare_result {
-    color:  #fd4400;
+    color:  #00fd4c;
     font-size: 24px;
 }
 
 #winner_team {
-    color: #fd4400;
+    color: #00fd4c;
     font-size: 28px;
 }
 
-.team_result {
+.team_result, .player_result {          
     display: none;
 }
 
@@ -90,12 +90,63 @@
     border: 3px solid white;
 }
 
-#left_team_result {
+.player_result img {
+    margin: 10px;
+    max-width: 200px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    background-color: #FF851B;
+}
+
+#left_team_result, #left_player_result {
     width: 45%;
     float: left;
 }
 
-#right_team_result {
+#right_team_result, #right_player_result {
     width: 45%;
     float: right;
+}
+
+.compare h1, h2 {
+    font-family: cursive;
+}
+
+/* all-team-cell and all-player-cell may be differ next time... */
+.all-team-cell a {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: cursive;
+    text-align: center;
+    box-shadow: 1em 1em #00fd4c;
+    color: white;
+    border: 2px solid  white;
+    background-color:  #1F2833;
+}
+.all-team-cell a:hover {
+    color: #1F2833;
+    border: 2px solid  #1F2833;
+    background-color:  white;
+}
+
+.all-player-cell a {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: cursive;
+    text-align: center;
+    box-shadow: 1em 1em #fd4400;
+    color: white;
+    border: 2px solid  white;
+    background-color:  #1F2833;
+}
+
+.all-player-cell a:hover {
+    color: #1F2833;
+    border: 2px solid  #1F2833;
+    background-color:  white;
 }
