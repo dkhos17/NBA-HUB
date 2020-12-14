@@ -2,7 +2,7 @@
 Web Project 2020
 
 # Home Page
-img src=2k20-NBA-HOME.png width=960
+img src=Web Photos/2k20-NBA-HOME.png width=960
 
 # Games Page
 img src=2k20-NBA-GAMES.png width=960
