@@ -14,13 +14,13 @@
     justify-content: space-between;
 }
 
-#left_corner_team, #left_corner_player {
+/* #left_corner_team, #left_corner_player {
     width: 30%;
 }
 
-#right_corner_team, right_corner_player {
+#right_corner_team, #right_corner_player {
     width: 30%;
-}
+} */
 
 ::placeholder {
     /* color: #1F2833; */
