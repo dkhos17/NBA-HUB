@@ -3,6 +3,7 @@ Web Project 2020
 
 # Home Page
 <img src="Web Photos/2k20-NBA-HOME.png" width=960>
+<<<<<<< HEAD
 <img src="Web Photos/2k20-NBA-HOME1.png" width=960>
 
 # Games Page
@@ -12,6 +13,14 @@ Web Project 2020
 # Teams Page
 <img src="Web Photos/2k20-NBA-TEAMS1.png" width=960>
 <img src="Web Photos/2k20-NBA-TEAMS2.png" width=960>
+=======
+
+# Games Page
+<img src="Web Photos/2k20-NBA-GAMES.png" width=960>
+
+# Teams Page
+<img src="Web Photos/2k20-NBA-TEAMS.png" width=960>
+>>>>>>> 2ee3dfe1ca921265dd67badfa29f4619184b7412
 
 # Players Page
 <img src="Web Photos/2k20-NBA-PLAYERS.png" width=960>
@@ -19,6 +28,9 @@ Web Project 2020
 # Stats Page
 <img src="Web Photos/2k20-NBA-STATS1.png" width=960>
 <img src="Web Photos/2k20-NBA-STATS2.png" width=960>
+<<<<<<< HEAD
 <img src="Web Photos/2k20-NBA-STATS3.png" width=960>
+=======
+>>>>>>> 2ee3dfe1ca921265dd67badfa29f4619184b7412
 
 
