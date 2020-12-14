@@ -14,10 +14,6 @@ Web Project 2020
 <img src="Web Photos/2k20-NBA-TEAMS1.png" width=960>
 <img src="Web Photos/2k20-NBA-TEAMS2.png" width=960>
 
-
-# Games Page
-<img src="Web Photos/2k20-NBA-GAMES.png" width=960>
-
 # Teams Page
 <img src="Web Photos/2k20-NBA-TEAMS.png" width=960>
 
