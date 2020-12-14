@@ -6,7 +6,7 @@ function showTeamProfile(team_data) {
       if(old_text.includes(delimiter)) {
         element.innerHTML = old_text.split(delimiter)[0] + delimiter + '&nbsp' + new_text
       } else {
-        element.innerHTML = '---&nbsp' + new_text.toUpperCase() + '&nbsp---';
+        element.innerHTML = '&nbsp' + new_text.toUpperCase() + '&nbsp';
       }
   }
 

@@ -52,7 +52,7 @@ function CreatePlayerRecordItem(player_data) {
     //     showPlayerProfile(player_data);
     // });
 
-    player_name_header.innerHTML = '---&nbsp' + player_data.name + '&nbsp---';
+    player_name_header.innerHTML = '&nbsp' + player_data.name + '&nbsp';
     a.appendChild(player_name_header);
     figure.appendChild(a);
     player.appendChild(prof_img);

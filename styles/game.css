@@ -63,12 +63,12 @@
 
 #games_text h1 {
     font-size: 18px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: cursive;
 }
 
 #games_text h2 {
     font-size: 15px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: cursive;
 }
 
 #games_list {
@@ -79,4 +79,10 @@
     background-color: #111111;
     border-bottom: 4px solid #FF851B;
     border-top: 4px solid #111111;
+}
+
+@media screen and (max-width: 1400px) {
+    .idk {
+        width: 80%;
+    }
 }

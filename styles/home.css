@@ -124,3 +124,9 @@ div.body {
     color: black;
     font-family: monospace;
 }
+
+@media screen and (max-width: 1400px) {
+    #main_container {
+        width: 80%;
+    }
+}

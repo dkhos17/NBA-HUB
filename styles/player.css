@@ -6,7 +6,7 @@
 .player-cell {
     text-align: center;
     font-size: 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: cursive;
     border: 2px solid #FF851B;
     background-color: #1F2833;
 }
@@ -74,3 +74,8 @@
     display: flex;
 }
 
+@media screen and (max-width: 1400px) {
+    .player-profile {
+        width: 80%;
+    }
+}

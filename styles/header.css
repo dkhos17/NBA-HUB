@@ -167,3 +167,16 @@ a {
     height: 24px;
     object-fit: fit;
 }
+
+@media screen and (max-width: 1400px) {
+    #header, #main_container {
+        width: 80%;
+    }
+    .container {
+        width: 80%;
+    }
+
+    .title {
+        width: 80%;
+    }
+}

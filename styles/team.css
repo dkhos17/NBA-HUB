@@ -2,21 +2,21 @@
     padding: 4px;
     text-align: center;
     border: 3px solid #FF851B;
-    background-color: #111111;   
+    background-color: #111111;
 }
 
 .team-box h1 {
     font-size: 25px;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: cursive;
     color: #00fd4c;
     border-bottom: 2px solid #FF851B;
 }
 
 .team-box h2 {
     font-size: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: cursive;
     color: #00fd4c;
 }
 
@@ -40,7 +40,7 @@
     text-decoration: none;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: cursive;
 }
 
 #team_abbreviation a:hover {
@@ -51,4 +51,10 @@
 .team-profile {
     width: 60%;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 1400px) {
+    .team-profile {
+        width: 80%;
+    }
 }
