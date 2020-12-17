@@ -3,26 +3,41 @@
 <head>
 <title>2k20 NBA</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="header.css" type="text/css">
+<link rel="stylesheet" href="../styles/header.css" type="text/css">
 </head>
 
 <body>
 <div class="body header">
   <header id="header">
     <div id="hgroup">
-      <h1><a href="#"><img src="resources/web-logo.png" width="30" height="30" alt=""> NBA </a></h1>
+      <h1><a href="Home.html"><img src="../resources/web-logo.png" width="30" height="30" alt=""> NBA </a></h1>
       <h2>2020 Free NBA info</h2>
     </div>
    
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Games</a></li>
-        <li><a href="#">Teams</a></li>
-        <li><a href="#">Players</a></li>
-        <li><a href="#">Stats</a></li>
-      </ul>
-    </nav>
+    <div class="headernav" id="headerNavBar">
+        <a href="Home.html">Home</a>
+        <a href="Games.html?page=1">Games</a>
+        <a href="Teams.html?team=mia">Teams</a>
+        <a href="Players.html?page=0&player=LeBron-James">Players</a>
+        <a href="Stats.html">Stats</a>
+        <a id="search">
+            <button id="searchButton"> <img src="../resources/search-icon.png">  </button>
+            <input id="searchInput"type="text" placeholder="Search...">
+        </a>
+      <a class="icon" onclick="responsive()">
+        <img src="../resources/search-icon.png">
+      </a>
+      <script>
+          function responsive() {
+              var nav = document.getElementById("headerNavBar");
+              if (nav.className === "headernav") {
+                nav.className += " responsive";
+              } else {
+                nav.className = "headernav";
+              }
+          };
+      </script>
+    </div>
 
   </header>
 </div>

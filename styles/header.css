@@ -19,7 +19,7 @@ a {
     font-style: normal;
 }
 
-.header, .header a {
+.header, #hgroup a {
     color: #fd4400;
     background-color: #1F2833;
 }
@@ -51,33 +51,45 @@ a {
     font-size: 13px;
 }
 
-#header nav {
+.headernav {
     display: block;
-    padding: 20px 0;
-    background-color:  #fd4400;
+    padding: 10px;
     clear: both;
+    overflow: hidden;
+    background-color: #fd4400;
 }
 
-#header nav ul {
-    padding: 0 20px;
-    margin: 0;
-}
+.headernav a {
+    float: left;
+    display: block;
+    padding: 10px 20px;
 
-#header nav li {
-    display: inline;
-    margin-right: 30px;
-}
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
 
-#header nav li a {
     color: #ffffff;
-    background-color: #23232300;
+    text-decoration: none;
 }
 
-#header nav li a:hover {
+.headernav .icon {
+    display: none;
+}
+
+.headernav .icon img{
+    width: 24px;
+    height: 24px;
+    object-fit: fit;
+}
+
+.headernav a:hover {
     color: #1F2833;
-    background-color: #23232300;
+    background-color: #fd4400;
 }
 
+.headernav a.current {
+    color: #1F2833;
+}
 
 :root {
     --grid-cols: 1;
@@ -130,7 +142,7 @@ a {
 
 .prev, .next {
     margin: 8px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     background-color: #00fd4c;
     color: #1F2833;
@@ -141,11 +153,9 @@ a {
 }
 
 #searchInput {
-    float: right;
     outline:none;
     border: none;
-    font-size: 14px;
-    height: 24px;
+    font-size: 16px;
     font-weight: bold;
     font-style: italic;
     font-family: sans-serif;
@@ -155,6 +165,11 @@ a {
 ::placeholder {
     color: #1F2833;
 }
+
+#search {
+    float: right;
+}
+
 #searchButton {
     float: right;
     outline:none;
@@ -168,15 +183,45 @@ a {
     object-fit: fit;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1024px) {
     #header, #main_container {
         width: 80%;
     }
+    
     .container {
         width: 80%;
     }
 
     .title {
         width: 80%;
+    }
+
+    .headernav.responsive {
+        position: relative;
+    }
+
+    #search {
+        float: left;
+    }
+
+    .headernav a:not(:first-child) {
+        display: none;
+    }
+
+    .headernav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .headernav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .headernav.responsive a.icon {
+        top: 0;
+        right: 0;
+        position: absolute;
     }
 }

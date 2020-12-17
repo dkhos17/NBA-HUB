@@ -12,28 +12,40 @@
 
 <body>
 <div class="body header">
-  <header id="header" class="clear">
+  <header id="header">
     <div id="hgroup">
       <h1><a href="Home.html"><img src="resources/web-logo.png" width="30" height="30" alt=""> NBA </a></h1>
       <h2>2020 Free NBA info</h2>
     </div>
-   
-    <nav>
-      <ul>
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="Games.html?page=1">Games</a></li>
-        <li><a href="Teams.html?team=mia">Teams</a></li>
-        <li><a href="Players.html?page=0&player=LeBron-James">Players</a></li>
-        <li><a href="Stats.html">Stats</a></li>
-        <li id="search-li">
+    
+    <div class="headernav" id="headerNavBar">
+        <a href="Home.html" class="current">Home</a>
+        <a href="Games.html?page=1">Games</a>
+        <a href="Teams.html?team=mia">Teams</a>
+        <a href="Players.html?page=0&player=LeBron-James">Players</a>
+        <a href="Stats.html">Stats</a>
+        <a id="search">
             <button id="searchButton"> <img src="resources/search-icon.png">  </button>
             <input id="searchInput"type="text" placeholder="Search...">
-        </li>
-      </ul>
-    </nav>
+        </a>
+      <a class="icon" onclick="responsive()">
+        <img src="resources/search-icon.png">
+      </a>
+      <script>
+          function responsive() {
+              var nav = document.getElementById("headerNavBar");
+              if (nav.className === "headernav") {
+                nav.className += " responsive";
+              } else {
+                nav.className = "headernav";
+              }
+          };
+      </script>
+    </div>
 
   </header>
 </div>
+
 <div class="body main">
   <div id="main_container" class="clear">
     <section class="title">

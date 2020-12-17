@@ -1,4 +1,4 @@
-var search = document.getElementById('search-li');
+var search = document.getElementById('search');
 search.style.display = 'none';
 
 function changeDisplay(elem, dsp) {
