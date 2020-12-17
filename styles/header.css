@@ -200,9 +200,9 @@ a {
         position: relative;
     }
 
-    #search {
+    /* #search {
         float: left;
-    }
+    } */
 
     .headernav a:not(:first-child) {
         display: none;

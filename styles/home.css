@@ -125,7 +125,7 @@ div.body {
     font-family: monospace;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1024px) {
     #main_container {
         width: 80%;
     }
