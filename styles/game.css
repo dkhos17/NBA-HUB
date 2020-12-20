@@ -58,6 +58,10 @@
     border: 3px solid #1F2833;
 }
 .idk img {
+    width: 100%;
+    height: auto;
+    max-width: 400px; 
+    max-height: 400px;
     padding-right: 10px;
 }
 
@@ -81,7 +85,7 @@
     border-top: 4px solid #111111;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1024px) {
     .idk {
         width: 80%;
     }
