@@ -15,6 +15,7 @@ Web Project 2020
 
 # Players Page
 <img src="Web Photos/2k20-NBA-PLAYERS.png" width=960>
+<img src="Web Photos/2k20-NBA-PLAYERS1.png" width=960>
 
 # Stats Page
 <img src="Web Photos/2k20-NBA-STATS1.png" width=960>
