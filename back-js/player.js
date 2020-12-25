@@ -47,7 +47,7 @@ function CreatePlayerRecordItem(player_data) {
     player.setAttribute('class', 'player-cell');
     prof_img.setAttribute('src', 'https://nba-players.herokuapp.com/players/' + player_data.name.split(' ')[1].toLowerCase() + '/' + player_data.name.split(' ')[0].toLowerCase());
     prof_img.setAttribute('onerror', "src='resources/player_default.png'");
-    a.setAttribute('href', 'Players.html?page=' + PLAYERS_CURR_PAGE + '&player=' + player_data.name.split(' ')[0] +'-' + player_data.name.split(' ')[1]);
+    a.setAttribute('href', '#Players?page=' + PLAYERS_CURR_PAGE + '&player=' + player_data.name.split(' ')[0] +'-' + player_data.name.split(' ')[1]);
     // a.addEventListener('click', function() {
     //     showPlayerProfile(player_data);
     // });
@@ -74,46 +74,34 @@ function createPlayerGrid(players) {
 };
 
 function loadPlayerProfile(first_name, last_name) {
-  const data = null;
-  const xhr = new XMLHttpRequest();
-  
   var player_profile = document.getElementById('player_profile');
   player_profile.style.display = 'none';
 
-  xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === this.DONE) {
-      var player = JSON.parse(this.response);
+  fetch("https://nba-players.herokuapp.com/players-stats/"+last_name+'/'+first_name)
+  .then(response => response.json())
+  .then(player => {
       showPlayerProfile(player);
       player_profile.style.display = 'block';
-    } else {
+  }).catch((err) => {
       var player_profile_name = document.getElementById('player_profile_name');
       player_profile_name.innerHTML = 'PLAYER PROFILE - ' + first_name + '&nbsp' + last_name + '&nbsp NOT FOUND';
-    }
   });
-  
-  xhr.open("GET", "https://nba-players.herokuapp.com/players-stats/"+last_name+'/'+first_name);
-  xhr.send(data);
 }
 
-var player_profile_to_load = window.location.href.split('&')[1].split('=')[1].split('-');
+var player_profile_to_load = window.location.hash.split('&')[1].split('=')[1].split('-');
 loadPlayerProfile(player_profile_to_load[0].toLowerCase(), player_profile_to_load[1].toLowerCase());
 
 function loadAllPlayers(page, per_page) {
-  const data = null;
-  const xhr = new XMLHttpRequest();
-  
-  xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === this.DONE) {
-      var players = JSON.parse(this.response);
+  fetch("https://nba-players.herokuapp.com/players-stats")
+  .then(response => response.json())
+  .then(players => {
       createPlayerGrid(players.slice(page*per_page, (page+1)*per_page));
-    }
+  }).catch((err) => {
+      console.log(err);
   });
-  
-  xhr.open("GET", "https://nba-players.herokuapp.com/players-stats");
-  xhr.send(data);
 }
 
-var PLAYERS_CURR_PAGE = parseInt(window.location.href.split('?')[1].split('&')[0].split('=')[1]);
+var PLAYERS_CURR_PAGE = parseInt(window.location.hash.split('?')[1].split('&')[0].split('=')[1]);
 var PLAYERS_MAX_PAGES = 21;
 var PLAYERS_PER_PAGE = 24;
 loadAllPlayers(PLAYERS_CURR_PAGE, PLAYERS_PER_PAGE);
@@ -121,18 +109,18 @@ loadAllPlayers(PLAYERS_CURR_PAGE, PLAYERS_PER_PAGE);
 var players_next_butt = document.getElementById("playersNextButton");
 players_next_butt.addEventListener("click", function() {
     PLAYERS_CURR_PAGE += 1; PLAYERS_CURR_PAGE %= PLAYERS_MAX_PAGES;
-    window.location.href = window.location.href.split('?')[0] + '?page=' + PLAYERS_CURR_PAGE + '&' + window.location.href.split('&')[1];
+    window.location.hash = window.location.hash.split('?')[0] + '?page=' + PLAYERS_CURR_PAGE + '&' + window.location.hash.split('&')[1];
 });
 
 var players_prev_butt = document.getElementById("playersPrevButton");
 players_prev_butt.addEventListener("click", function() {
     PLAYERS_CURR_PAGE -= 1; PLAYERS_CURR_PAGE += PLAYERS_MAX_PAGES; PLAYERS_CURR_PAGE %= PLAYERS_MAX_PAGES;
-    window.location.href = window.location.href.split('?')[0] + '?page=' + PLAYERS_CURR_PAGE + '&' + window.location.href.split('&')[1];
+    window.location.hash = window.location.hash.split('?')[0] + '?page=' + PLAYERS_CURR_PAGE + '&' + window.location.hash.split('&')[1];
 });
 
 var search = document.getElementById('searchButton');
 search.addEventListener('click', function() {
   var search_text = document.getElementById('searchInput').value.toLowerCase();
   if(search_text.length == 0){return}
-  window.location.href = window.location.href.split('?')[0] + '?page=' + PLAYERS_CURR_PAGE + '&player=' + search_text.split(' ')[0] + '-' + search_text.split(' ')[1];
+  window.location.hash = window.location.hash.split('?')[0] + '?page=' + PLAYERS_CURR_PAGE + '&player=' + search_text.split(' ')[0] + '-' + search_text.split(' ')[1];
 });

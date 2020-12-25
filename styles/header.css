@@ -187,6 +187,10 @@ a {
     #header, #main_container {
         width: 80%;
     }
+
+    #hgroup h2, #searchInput {
+        font-size: 23px;
+    }
     
     .container {
         width: 80%;
@@ -200,9 +204,9 @@ a {
         position: relative;
     }
 
-    /* #search {
-        float: left;
-    } */
+    .headernav a {
+        font-size: 32px;
+    }
 
     .headernav a:not(:first-child) {
         display: none;

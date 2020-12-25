@@ -129,4 +129,85 @@ div.body {
     #main_container {
         width: 80%;
     }
+    
+    .serivces-container h2 {
+        font-size: 28px;
+    }
+
+    .serivces-container p {
+        font-size: 24px;
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+                                                                    /* slideshow css */
+.slideshow-container {
+    margin: auto;
+    max-width: 100%;
+    position: relative;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 500px;
+}
+
+.slides {
+    display: none;
+}
+
+.prev, .next {
+    top: 50%;
+    width: auto;
+    cursor: pointer;
+    position: absolute;
+    
+    font-size: 20px;
+    margin-top: -20px;
+    padding: 10px;
+    
+    color: #ffffff;
+    background-color: #ffffff00 !important;
+}
+
+.next {
+  right: 0;
+}
+
+.dots {
+    display: inline-block;
+    
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    
+    margin: 0 2px;
+    background-color: #bbb;
+    transition: background-color 0.5s ease;
+}
+
+.active, .dots:hover {
+  background-color: #1f039e;
+}
+
+.prev:hover, .next:hover {
+    background-color: #ffffff00;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }

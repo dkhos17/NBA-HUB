@@ -108,7 +108,7 @@ function loadAllGames(page, per_page, like) {
   xhr.send(data);
 }
 
-var GAMES_CURR_PAGE = parseInt(window.location.href.split('?')[1].split('&')[0].split('=')[1]);
+var GAMES_CURR_PAGE = parseInt(window.location.hash.split('?')[1].split('&')[0].split('=')[1]);
 var GAMES_MAX_PAGES = 24;
 var GAMES_PER_PAGE = 24;
 var SEARCH_MODE = false;
@@ -118,7 +118,7 @@ games_next_butt.addEventListener("click", function() {
     if(SEARCH_MODE) {return}
     GAMES_CURR_PAGE += 1; GAMES_CURR_PAGE %= GAMES_MAX_PAGES;
     if(GAMES_CURR_PAGE == 0) GAMES_CURR_PAGE++;
-    window.location.href = window.location.href.split('=')[0] + '=' + GAMES_CURR_PAGE;
+    window.location.hash = window.location.hash.split('=')[0] + '=' + GAMES_CURR_PAGE;
 });
 
 var games_prev_butt = document.getElementById("gamesPrevButton");
@@ -126,7 +126,7 @@ games_prev_butt.addEventListener("click", function() {
     if(SEARCH_MODE) {return}
     GAMES_CURR_PAGE -= 1; GAMES_CURR_PAGE += GAMES_MAX_PAGES;GAMES_CURR_PAGE %= GAMES_MAX_PAGES;
     if(GAMES_CURR_PAGE == 0) GAMES_CURR_PAGE++;
-    window.location.href = window.location.href.split('=')[0] + '=' + GAMES_CURR_PAGE;
+    window.location.hash = window.location.hash.split('=')[0] + '=' + GAMES_CURR_PAGE;
 });
 
 
@@ -139,8 +139,8 @@ function filterBy(search_text) {
   }
 }
 
-if(window.location.href.includes('search')) {
-  var searchAttr = window.location.href.split('?')[1].split('&')[1].split('=')[1];
+if(window.location.hash.includes('search')) {
+  var searchAttr = window.location.hash.split('?')[1].split('&')[1].split('=')[1];
   if(searchAttr == 'All') {
     loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
   } else {
@@ -155,5 +155,5 @@ var search = document.getElementById('searchButton');
 search.addEventListener('click', function() {
   var searchText = document.getElementById('searchInput').value;
   if(searchText.length == 0) searchText = 'All';
-  window.location.href = window.location.href.split('=')[0] + '=' + GAMES_CURR_PAGE + "&search=" + searchText;
+  window.location.hash = window.location.hash.split('=')[0] + '=' + GAMES_CURR_PAGE + "&search=" + searchText;
 });

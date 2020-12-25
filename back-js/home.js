@@ -9,6 +9,26 @@ function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+document.getElementById('prevSlide').addEventListener('click', function() {
+    plusSlides(-1);
+});
+document.getElementById('nextSlide').addEventListener('click', function() {
+    plusSlides(1);
+});
+
+document.getElementById('dot1').addEventListener('click', function() {
+    currentSlide(1);
+});
+
+document.getElementById('dot2').addEventListener('click', function() {
+    currentSlide(2);
+});
+
+document.getElementById('dot3').addEventListener('click', function() {
+    currentSlide(3);
+});
+
+
 function showSlides(n) {
     var slides = document.getElementsByClassName("slides");
     var dots = document.getElementsByClassName("dots");

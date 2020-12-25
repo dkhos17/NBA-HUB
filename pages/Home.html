@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="styles/header.css" type="text/css">
 <link rel="stylesheet" href="styles/home.css" type="text/css">
 <link rel="stylesheet" href="styles/footer.css" type="text/css">
-<link rel="stylesheet" href="styles/slideshow.css" type="text/css">
 </head>
 
 <body>
@@ -66,15 +65,15 @@
             <img src="resources/slide6.jpg">
           </div>
 
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <a class="prev" id="prevSlide">&#10094;</a>
+          <a class="next" id="nextSlide">&#10095;</a>
         </div>
         <br>
 
         <div style="text-align: center;">
-          <span class="dots" onclick="currentSlide(1)"></span>
-          <span class="dots" onclick="currentSlide(2)"></span>
-          <span class="dots" onclick="currentSlide(3)"></span>
+          <span class="dots" id="dot1"></span>
+          <span class="dots" id="dot2"></span>
+          <span class="dots" id="dot3"></span>
         </div>
 
     </a></section>

@@ -40,7 +40,7 @@ function CreateTeamRecordItem(team_data) {
 
     a.setAttribute('href', 'https://en.wikipedia.org/wiki/' + team_data.full_name);
     img.setAttribute('src', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/'+team_data.abbreviation.toLowerCase()+'.png');
-    abbreviation.setAttribute('href', 'Teams.html?team=' + team_data.abbreviation)
+    abbreviation.setAttribute('href', '#Teams?team=' + team_data.abbreviation)
 
     article.setAttribute('class', 'team-box');
     figure.setAttribute('class', 'result');
@@ -83,7 +83,7 @@ function CreateTeamPlayerRecordItem(player_data, idx) {
   var player_name = document.createElement('h2');
 
   player_name.innerHTML = idx.toString() + ")&nbsp&nbsp" + player_data.name;
-  a.setAttribute('href', 'Players.html?page=0&player=' + player_data.name.split(' ')[0] +'-' + player_data.name.split(' ')[1]);
+  a.setAttribute('href', '#Players?page=0&player=' + player_data.name.split(' ')[0] +'-' + player_data.name.split(' ')[1]);
   a.appendChild(player_name);
   player.appendChild(a);
   return player;
@@ -122,18 +122,13 @@ team_players.addEventListener('click', function() {
 });
 
 function loadTeamPlayers(team_abv) {
-  const data = null;
-  const xhr = new XMLHttpRequest();
-  
-  xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === this.DONE) {
-      var players = JSON.parse(this.response);
-      createTeamPlayersGrid(players);
-    }
+  fetch("https://nba-players.herokuapp.com/players-stats-teams/" + team_abv)
+  .then(response => response.json())
+  .then(players => {
+    createTeamPlayersGrid(players);})
+  .catch((err) => {
+    console.log(err, "can't load players");
   });
-  
-  xhr.open("GET", "https://nba-players.herokuapp.com/players-stats-teams/" + team_abv);
-  xhr.send(data);
 }
 
 function loadTeamProfile(team_data) {
@@ -149,7 +144,7 @@ function createTeamGrid(teams) {
   team_container.style.setProperty('--grid-rows', rows);
   team_container.style.setProperty('--grid-cols', cols);
 
-  var team_profile_to_load = window.location.href.split('=')[1].toLowerCase();
+  var team_profile_to_load = window.location.hash.split('=')[1].toLowerCase();
 
   for (c = 0; c < rows*cols; c++) {
     if(teams.data[c].abbreviation.toLowerCase() == team_profile_to_load) {
@@ -192,5 +187,5 @@ var search = document.getElementById('searchButton')
 search.addEventListener('click', function() {
   var serach_team = document.getElementById('searchInput').value;
   if(serach_team.length == 0) {return}
-  window.location.href = window.location.href.split('=')[0] + '=' + serach_team;
+  window.location.hash = window.location.hash.split('=')[0] + '=' + serach_team;
 });

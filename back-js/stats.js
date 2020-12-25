@@ -78,31 +78,6 @@ function showTeamStats(team_abv, players, corner) {
                 }
             }
         }
-        if(idx == players.length-1 && corner == 'left_') {
-            if(document.getElementById('right_team_result').style.display == 'block') {
-                var right_element = document.getElementById(id.replace('left','right'));
-                var right_text = right_element.innerHTML;
-                var right_val = parseFloat(right_text.split(delimiter)[1].split(';')[1]);
-                if(right_val < new_val) {
-                    element.style.color = "blue";
-                    right_element.style.color = "red";
-                } else if(right_val > new_val) {
-                    element.style.color = "red";
-                    right_element.style.color = "blue";
-                } else {
-                    element.style.color = "#1F2833";
-                    left_element.style.color = "#1F2833";
-                }
-                if(id.includes('efficiency')) {
-                    element.style.color = "white";
-                    element.style.fontSize = "17px";
-                    right_element.style.color = "white";
-                    right_element.style.fontSize = "17px";
-                    winnerTeam(new_val, right_val);
-                }
-            }
-        }
-        
     }
     document.getElementById(corner+"team_abv").innerHTML = team_abv.toUpperCase();
     var img = document.getElementById(corner+"team_profile_img");
@@ -148,13 +123,23 @@ function loadTeamStats(team_abv, corner) {
 
 var compare_teams = document.getElementById('compareTeamsButton');
 compare_teams.addEventListener('click', function() {
-    var leftTeam = document.getElementById('leftTeamInput');
-    var rightTeam = document.getElementById('rightTeamInput');
-    loadTeamStats(leftTeam.value.toLowerCase(), 'left_');
-    loadTeamStats(rightTeam.value.toLowerCase(), 'right_');
+    var leftTeamABV = document.getElementById('leftTeamInput').value.toLowerCase();
+    var rightTeamABV = document.getElementById('rightTeamInput').value.toLowerCase();
+    Promise.all([
+        fetch("https://nba-players.herokuapp.com/players-stats-teams/" + leftTeamABV).then(response => response.json())
+        .catch((err) => {document.getElementById('leftTeamInput').value = "Wrong ABV...";}),
+        fetch("https://nba-players.herokuapp.com/players-stats-teams/" + rightTeamABV).then(response => response.json())
+        .catch((err) => {document.getElementById('rightTeamInput').value = "Wrong ABV...";}),
+      ]).then(team_players =>  {
+        showTeamStats(leftTeamABV, team_players[0], 'left_');
+        showTeamStats(rightTeamABV, team_players[1], 'right_');
+      }).catch((err) => {
+        console.log(err);
+      });
 });
 
 function showPlayerStats(player_abv, player, corner) {
+    document.getElementById(corner+'player_result').style.display = 'none';
     var helper = function(id, delimiter, new_text) {
         var element = document.getElementById(id);
         var new_val = parseFloat(new_text);
@@ -202,31 +187,6 @@ function showPlayerStats(player_abv, player, corner) {
                 }
             }
         }
-        if(corner == 'left_') {
-            if(document.getElementById('right_player_result').style.display == 'block') {
-                var right_element = document.getElementById(id.replace('left','right'));
-                var right_text = right_element.innerHTML;
-                var right_val = parseFloat(right_text.split(delimiter)[1].split(';')[1]);
-                if(right_val < new_val) {
-                    element.style.color = "blue";
-                    right_element.style.color = "red";
-                } else if(right_val > new_val) {
-                    element.style.color = "red";
-                    right_element.style.color = "blue";
-                } else {
-                    element.style.color = "#1F2833";
-                    left_element.style.color = "#1F2833";
-                }
-                if(id.includes('efficiency')) {
-                    element.style.color = "white";
-                    element.style.fontSize = "17px";
-                    right_element.style.color = "white";
-                    right_element.style.fontSize = "17px";
-                    winnerPlayer(new_val, right_val);
-                }
-            }
-        }
-        
     }
     document.getElementById(corner+"player_abv").innerHTML = player_abv.toUpperCase();
     var img = document.getElementById(corner+"player_profile_img");
@@ -252,34 +212,30 @@ function showPlayerStats(player_abv, player, corner) {
     document.getElementById(corner+'player_result').style.display = 'block';
 }
 
-function loadPlayerStats(player_abv, corner) {
-    const data = null;
-    const xhr = new XMLHttpRequest();
-    document.getElementById(corner+'player_result').style.display = 'none';
-    document.getElementById('winner_player').style.display = 'none';
-    
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === this.DONE) {
-        var player = JSON.parse(this.response);
-        console.log(player);
-        showPlayerStats(player_abv, player, corner);
-      }
-    });
-
-    if(player_abv.includes(' ')) {
-        var first_name = player_abv.split(' ')[0].toLowerCase();
-        var last_name = player_abv.split(' ')[1].toLowerCase();
-        xhr.open("GET", "https://nba-players.herokuapp.com/players-stats/"+last_name+'/'+first_name);
-        xhr.send(data);
-    }
-}
-
 var compare_players = document.getElementById('comparePlayersButton');
 compare_players.addEventListener('click', function() {
-    var leftPlayer = document.getElementById('leftPlayerInput');
-    var rightPlayer = document.getElementById('rightPlayerInput');
-    loadPlayerStats(leftPlayer.value.toLowerCase(), 'left_');
-    loadPlayerStats(rightPlayer.value.toLowerCase(), 'right_');
+    document.getElementById('winner_player').style.display = 'none';
+
+    var leftPlayer = document.getElementById('leftPlayerInput').value.toLowerCase();
+    var rightPlayer = document.getElementById('rightPlayerInput').value.toLowerCase();
+
+    var left_first_name = leftPlayer.split(' ')[0];
+    var left_last_name = leftPlayer.split(' ')[1];
+
+    var right_first_name = rightPlayer.split(' ')[0];
+    var right_last_name = rightPlayer.split(' ')[1];
+
+    Promise.all([
+      fetch("https://nba-players.herokuapp.com/players-stats/"+left_last_name+'/'+left_first_name).then(response => response.json())
+      .catch((err) => {document.getElementById('leftPlayerInput').value = "Wrong Player...";}),
+      fetch("https://nba-players.herokuapp.com/players-stats/"+right_last_name+'/'+right_first_name).then(response => response.json())
+      .catch((err) => {document.getElementById('rightPlayerInput').value = "Wrong Player...";}),
+    ]).then(players =>  {
+      showPlayerStats(leftPlayer, players[0], 'left_');
+      showPlayerStats(rightPlayer, players[1], 'right_');
+    }).catch((err) => {
+      console.log(err);
+    });
 });
 
 function CreateTeamRecordItem(team_abv) {
@@ -288,7 +244,7 @@ function CreateTeamRecordItem(team_abv) {
     
     team.setAttribute('class', 'all-team-cell');
     team_name_header.innerHTML = '&nbsp' + team_abv + '&nbsp';
-    team_name_header.setAttribute('href', 'Teams.html?team=' + team_abv);
+    team_name_header.setAttribute('href', '#Teams?team=' + team_abv);
 
     team.appendChild(team_name_header);
     return team;
@@ -308,31 +264,21 @@ function createTeamsList(teams) {
     };
 };
 
-function loadAllTeams() {
-    const data = null;
-    const xhr = new XMLHttpRequest();
-    
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === this.DONE) {
-        var teams = JSON.parse(this.response);
-        createTeamsList(teams);
-      }
-    });
-    
-    xhr.open("GET", "https://nba-players.herokuapp.com/teams");
-    xhr.send(data);
-  }
-  
-  loadAllTeams();
+fetch("https://nba-players.herokuapp.com/teams")
+.then(response => response.json())
+.then(teams => {
+  createTeamsList(teams);})
+.catch((err) => {
+  console.log(err, "can't load teams");
+});
 
 function CreatePlayerRecordItem(player_data) {
     var player = document.createElement('div');
     var player_name_header = document.createElement('a');
 
     player.setAttribute('class', 'all-player-cell');
-    player_name_header.setAttribute('href', 'Players.html?page=0&player=' + player_data.name.split(' ')[0] +'-' + player_data.name.split(' ')[1]);
+    player_name_header.setAttribute('href', '#Players?page=0&player=' + player_data.name.split(' ')[0] +'-' + player_data.name.split(' ')[1]);
     player_name_header.innerHTML = '&nbsp' + player_data.name + '&nbsp';
-    
 
     // player_name_header.appendChild(a);
     player.appendChild(player_name_header);
@@ -350,22 +296,13 @@ function createPlayersList(players) {
       let cell = CreatePlayerRecordItem(players[c]);
       all_players_container.appendChild(cell);
     };
-  };
+};
 
   
-function loadAllPlayers() {
-    const data = null;
-    const xhr = new XMLHttpRequest();
-    
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === this.DONE) {
-        var players = JSON.parse(this.response);
-        createPlayersList(players);
-      }
-    });
-    
-    xhr.open("GET", "https://nba-players.herokuapp.com/players-stats");
-    xhr.send(data);
-}
-
-loadAllPlayers();
+fetch("https://nba-players.herokuapp.com/players-stats")
+.then(response => response.json())
+.then(players => {
+  createPlayersList(players);})
+.catch((err) => {
+  console.log(err, "can't load players");
+});
