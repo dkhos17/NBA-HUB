@@ -9,48 +9,39 @@ function activate_currentpage(idx) {
 }
 
 let routes = {
-  'Home': (args) => {
-    activate_currentpage(0);
-    loadCSS('styles/home.css');
-    loadJS('back-js/home.js')
-    loadHomePage().then(loadJS('back-js/home.js'));
+  'Home': (page, args) => {
+    loadHomePage().then(loadJSandCSS(page));
   },
 
-  'Games': (args) => {
-    activate_currentpage(1);
-    loadJS('back-js/game.js')
-    loadGamesPage().then(loadJS('back-js/game.js'));
-    loadCSS('styles/game.css');
+  'Games': (page, args) => {
+    loadGamesPage().then(loadJSandCSS(page));
   },
 
-  'Teams': (args) => {
-    activate_currentpage(2);
-    loadTeamsPage().then(loadJS('back-js/team.js'));
-    loadCSS('styles/team.css');
+  'Teams': (page, args) => {
+    loadTeamsPage().then(loadJSandCSS(page));
   },
 
-  'Players': (args) => {
-    activate_currentpage(3);
-    loadPlayersPage().then(loadJS('back-js/player.js'));
-    loadCSS('styles/player.css');
+  'Players': (page, args) => {
+    loadPlayersPage().then(loadJSandCSS(page));
   },
 
-  'Stats': (args) => {
-    activate_currentpage(4);
-    loadStatsPage().then(loadJS('back-js/stats.js'));
-    loadCSS('styles/stats.css');
+  'Stats': (page, args) => {
+    loadStatsPage().then(loadJSandCSS(page));
   }
 };
 
 let defaultRoute = 'Home';
 
 let handleRouting = () => {
-  let currentUri = window.location.hash || false;
-  if (currentUri !== false) {
-    currentUri = currentUri.substring(1);
-  }
-  var args = currentUri.split('?');
-  routes[args[0] || defaultRoute](args);
+    let currentUri = window.location.hash || false;
+    if (currentUri !== false) {
+      currentUri = currentUri.substring(1);
+    } else {
+      currentUri = defaultRoute;
+    }
+    var args = currentUri.split('?');
+    var page = args[0] || defaultRoute
+    routes[page](page.toLowerCase(), args);
 };
 
 window.addEventListener('load', handleRouting);
@@ -62,11 +53,19 @@ function loadCSS(cssURL) {
 }
 
 function loadJS(jsURL) {
-    var script = document.getElementById('singlepageJS');
+    var script = document.createElement('script');
+    // var script = document.getElementById('singlepageJS');
     script.src = jsURL;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function loadJSandCSS(page) {
+    loadJS('back-js/' + page + '.js');
+    loadCSS('styles/' + page + '.css');
 }
 
 function loadHomePage() {
+    activate_currentpage(0);
     return new Promise(function(resolve, reject) {
         mainElement.innerHTML = `
         <div id="main_container" class="clear">
@@ -175,6 +174,7 @@ function loadHomePage() {
 }
 
 function loadGamesPage() {
+    activate_currentpage(1);
     return new Promise(function(resolve, reject) {
         mainElement.innerHTML = `
         <section class="title">
@@ -204,13 +204,14 @@ function loadGamesPage() {
         <a class="prev round" id="gamesPrevButton"> &#8249; </a>
         <a class="next round" id="gamesNextButton"> &#8250; </a>
     </div>
-    <script src="back-js/game.js"></script>
+    <script src="back-js/games.js"></script>
         `;
         resolve();
     }); 
 }
 
 function loadTeamsPage() {
+    activate_currentpage(2);
     return new Promise(function(resolve, reject) {
         mainElement.innerHTML = `
     <section class="title">
@@ -253,10 +254,11 @@ function loadTeamsPage() {
 }
 
 function loadPlayersPage() {
+    activate_currentpage(3);
     return new Promise(function(resolve, reject) {
         mainElement.innerHTML = `
         <section class="title">
-        <h1 id="player_profile_name">PLAYER PROFILE - LeBron James </h1>
+        <h1 id="player_profile_name">PLAYER PROFILE - </h1>
     </section>
 
     <div class="player-profile" id="player_profile">
@@ -332,6 +334,7 @@ function loadPlayersPage() {
 }
 
 function loadStatsPage() {
+    activate_currentpage(4);
     return new Promise(function(resolve, reject) {
         mainElement.innerHTML = `
         <div class="compare">

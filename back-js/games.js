@@ -34,8 +34,8 @@ function CreateGameRecordItem(game_data) {
     team1_img.setAttribute('src', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/'+game_data.home_team.abbreviation.toLowerCase()+'.png');
     team2_img.setAttribute('src', 'https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/'+game_data.visitor_team.abbreviation.toLowerCase()+'.png');
 
-    team1_a.setAttribute('href', 'Teams.html?team=' + game_data.home_team.abbreviation)
-    team2_a.setAttribute('href', 'Teams.html?team=' + game_data.visitor_team.abbreviation)
+    team1_a.setAttribute('href', '#Teams?team=' + game_data.home_team.abbreviation)
+    team2_a.setAttribute('href', '#Teams?team=' + game_data.visitor_team.abbreviation)
 
     team1_a.innerHTML = game_data.home_team.abbreviation;
     double_point.innerHTML = '&nbsp:&nbsp';
@@ -61,7 +61,7 @@ function CreateGameRecordItem(game_data) {
     return game;
 }
 
-const games_container = document.getElementById("games_container");
+var games_container = document.getElementById("games_container");
 
 function createGameGrid(games, like) {
   if(like.length > 0) {
@@ -143,12 +143,15 @@ if(window.location.hash.includes('search')) {
   var searchAttr = window.location.hash.split('?')[1].split('&')[1].split('=')[1];
   if(searchAttr == 'All') {
     loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
+    document.getElementById('searchInput').value = 'Team ABV';
   } else {
     SEARCH_MODE = true;
     filterBy(searchAttr);
+    document.getElementById('searchInput').value = searchAttr;
   }
 } else {
   loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
+  document.getElementById('searchInput').value = 'Team ABV';
 }
 
 var search = document.getElementById('searchButton');
@@ -157,3 +160,6 @@ search.addEventListener('click', function() {
   if(searchText.length == 0) searchText = 'All';
   window.location.hash = window.location.hash.split('=')[0] + '=' + GAMES_CURR_PAGE + "&search=" + searchText;
 });
+
+var search = document.getElementById('search');
+search.style.display = 'block';

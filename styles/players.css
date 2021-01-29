@@ -100,6 +100,10 @@
         min-width: 100px;
         min-height: 100px;
     }
+
+    .player-box h1, .player-per-game h1, .player-per-game-h {
+        font-size: 30px;
+    }
     
     .player-info {
         margin-left: 0px;

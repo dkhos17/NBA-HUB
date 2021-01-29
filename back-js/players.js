@@ -60,7 +60,7 @@ function CreatePlayerRecordItem(player_data) {
     return player;
 }
 
-const players_container = document.getElementById("players_container");
+var players_container = document.getElementById("players_container");
 
 function createPlayerGrid(players) {
   players_container.innerHTML = ""
@@ -74,6 +74,7 @@ function createPlayerGrid(players) {
 };
 
 function loadPlayerProfile(first_name, last_name) {
+  document.getElementById('searchInput').value = first_name + ' ' + last_name;
   var player_profile = document.getElementById('player_profile');
   player_profile.style.display = 'none';
 
@@ -88,7 +89,7 @@ function loadPlayerProfile(first_name, last_name) {
   });
 }
 
-var player_profile_to_load = window.location.hash.split('&')[1].split('=')[1].split('-');
+var player_profile_to_load = window.location.hash.replace('%22','').split('&')[1].split('=')[1].split('-');
 loadPlayerProfile(player_profile_to_load[0].toLowerCase(), player_profile_to_load[1].toLowerCase());
 
 function loadAllPlayers(page, per_page) {
@@ -124,3 +125,7 @@ search.addEventListener('click', function() {
   if(search_text.length == 0){return}
   window.location.hash = window.location.hash.split('?')[0] + '?page=' + PLAYERS_CURR_PAGE + '&player=' + search_text.split(' ')[0] + '-' + search_text.split(' ')[1];
 });
+
+
+var search = document.getElementById('search');
+search.style.display = 'block';

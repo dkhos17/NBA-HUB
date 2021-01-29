@@ -9,11 +9,11 @@
 }
 
 #compare_teams_figure h1, #compare_players_figure h1 {
-    font-size: 2vw;
+    font-size: 32px;
 }
 
 #compare_teams_figure h2, #compare_players_figure h2 {
-    font-size: 1vw;
+    font-size: 16px;
 }
 
 .cmpr_div {
@@ -30,7 +30,7 @@
 .search_input {
     outline:none;
     border: none;
-    font-size: 1vw;
+    font-size: 16px;
     height: 48px;
     font-weight: bold;
     font-style: italic;
@@ -58,7 +58,7 @@
 }
 
 .comapre_button {
-    font-size: 2vw;
+    font-size: 32px;
     height: 48px;
     outline:none;
     border: none;
@@ -74,12 +74,12 @@
 
 .compare_result {
     color:  #00fd4c;
-    font-size: 2vw;
+    font-size: 32px;
 }
 
 #winner_team {
     color: #00fd4c;
-    font-size: 2vw;
+    font-size: 32px;
 }
 
 .team_result, .player_result {          
@@ -170,6 +170,20 @@
     .comapre_button {
         width: 60%;
     }
+
+    .all-player-cell a, .all-team-cell a, .search_input {
+        font-size: 26px;
+    }
+
+    #compare_teams_figure h1, #compare_players_figure h1 {
+        font-size: 40px;
+    }
+    
+    #compare_teams_figure h2, #compare_players_figure h2 {
+        font-size: 32px;
+    }
+    
+    
 
     #team_results, #player_results {
         display: flex;

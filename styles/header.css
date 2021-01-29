@@ -203,8 +203,7 @@ a {
     .headernav.responsive {
         position: relative;
     }
-
-    .headernav a {
+    .prev, .next, .headernav a {
         font-size: 32px;
     }
 

@@ -250,7 +250,7 @@ function CreateTeamRecordItem(team_abv) {
     return team;
 }
 
-const all_teams_container = document.getElementById("all_teams_container");
+var all_teams_container = document.getElementById("all_teams_container");
 
 function createTeamsList(teams) {
     all_teams_container.innerHTML = ""
@@ -285,7 +285,7 @@ function CreatePlayerRecordItem(player_data) {
     return player;
 }
 
-const all_players_container = document.getElementById("all_players_container");
+var all_players_container = document.getElementById("all_players_container");
 
 function createPlayersList(players) {
     all_players_container.innerHTML = ""
@@ -306,3 +306,7 @@ fetch("https://nba-players.herokuapp.com/players-stats")
 .catch((err) => {
   console.log(err, "can't load players");
 });
+
+
+var search = document.getElementById('search');
+search.style.display = 'none';
