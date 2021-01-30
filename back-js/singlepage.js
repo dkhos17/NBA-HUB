@@ -6,6 +6,7 @@ function activate_currentpage(idx) {
         pages[i].className = pages[i].className.replace(" current", "");
     }
     pages[idx].className += ' current';
+    document.getElementById('searchInput').value = ''
 }
 
 let routes = {

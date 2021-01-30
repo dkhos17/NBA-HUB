@@ -149,7 +149,7 @@ function createTeamGrid(teams) {
   for (c = 0; c < rows*cols; c++) {
     if(teams.data[c].abbreviation.toLowerCase() == team_profile_to_load) {
       loadTeamProfile(teams.data[c]);
-      document.getElementById('searchInput').value = team_profile_to_load;
+      document.getElementById('searchInput').placeholder = team_profile_to_load;
       team_profile_to_load = 'found';
     }
     let cell = CreateTeamRecordItem(teams.data[c]);
@@ -186,9 +186,9 @@ loadAllTeams();
 
 var search = document.getElementById('searchButton');
 search.addEventListener('click', function() {
-  var serach_team = document.getElementById('searchInput').value;
-  if(serach_team.length == 0) {return}
-  window.location.hash = window.location.hash.split('=')[0] + '=' + serach_team;
+  var search_team = document.getElementById('searchInput').value;
+  if(search_team.length == 0) {return}
+  window.location.hash = window.location.hash.split('=')[0] + '=' + search_team;
 });
 
 

@@ -74,7 +74,7 @@ function createPlayerGrid(players) {
 };
 
 function loadPlayerProfile(first_name, last_name) {
-  document.getElementById('searchInput').value = first_name + ' ' + last_name;
+  document.getElementById('searchInput').placeholder = first_name + ' ' + last_name;
   var player_profile = document.getElementById('player_profile');
   player_profile.style.display = 'none';
 

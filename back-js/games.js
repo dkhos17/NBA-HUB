@@ -99,6 +99,7 @@ function loadAllGames(page, per_page, like) {
       } else {
         games_list.innerHTML = 'All Games We Got';
       }
+      return;
     }
   });
   
@@ -143,15 +144,15 @@ if(window.location.hash.includes('search')) {
   var searchAttr = window.location.hash.split('?')[1].split('&')[1].split('=')[1];
   if(searchAttr == 'All') {
     loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
-    document.getElementById('searchInput').value = 'Team ABV';
+    document.getElementById('searchInput').placeholder = 'Team ABV';
   } else {
     SEARCH_MODE = true;
     filterBy(searchAttr);
-    document.getElementById('searchInput').value = searchAttr;
+    document.getElementById('searchInput').placeholder = searchAttr;
   }
 } else {
   loadAllGames(GAMES_CURR_PAGE, GAMES_PER_PAGE, "");
-  document.getElementById('searchInput').value = 'Team ABV';
+  document.getElementById('searchInput').placeholder = 'Team ABV';
 }
 
 var search = document.getElementById('searchButton');
