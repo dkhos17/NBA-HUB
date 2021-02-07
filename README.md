@@ -1,5 +1,6 @@
 # NBA-2K20
 Web Project 2020
+Link: https://dkhos17.github.io/NBA-2020/
 
 # Home Page
 <img src="Web Photos/2k20-NBA-HOME.png" width=960>
